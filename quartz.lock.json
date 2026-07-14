@@ -7,6 +7,12 @@
       "commit": "73a98dda7e4f55239310833299d91daf8611349f",
       "installedAt": "2026-06-09T17:57:45.809Z"
     },
+    "annotated-entrylist": {
+      "source": "github:emmakcoyle/annotated-entrylist",
+      "resolved": "https://github.com/emmakcoyle/annotated-entrylist.git",
+      "commit": "504a338e75b2dea5023d94f288c558abfdbcf8ac",
+      "installedAt": "2026-07-14T17:54:25.704Z"
+    },
     "article-title": {
       "source": "github:quartz-community/article-title",
       "resolved": "https://github.com/quartz-community/article-title.git",

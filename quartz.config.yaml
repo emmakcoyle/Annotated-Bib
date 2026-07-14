@@ -26,7 +26,7 @@ configuration:
         dark: "#1c2321"
         secondary: "#23555f"
         tertiary: "#8c2f22"
-        highlight: "rgba(140, 47, 34, 0.12)"
+        highlight: rgba(140, 47, 34, 0.12)
       darkMode:
         light: "#ece8de"
         lightgray: "#c9c2b2"
@@ -35,7 +35,7 @@ configuration:
         dark: "#1c2321"
         secondary: "#23555f"
         tertiary: "#8c2f22"
-        highlight: "rgba(140, 47, 34, 0.12)"
+        highlight: rgba(140, 47, 34, 0.12)
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
@@ -160,7 +160,7 @@ plugins:
   - source: github:quartz-community/graph
     enabled: true
     layout:
-      position: right
+      position: afterBody
       priority: 10
   - source: github:quartz-community/search
     enabled: true
@@ -173,7 +173,7 @@ plugins:
   - source: github:quartz-community/backlinks
     enabled: true
     layout:
-      position: right
+      position: afterBody
       priority: 50
   - source: github:quartz-community/article-title
     enabled: false
@@ -272,6 +272,13 @@ plugins:
       darkMode: auto
       exportPadding: 20
     order: 50
+  - source: github:emmakcoyle/annotated-entrylist
+    enabled: true
+    options: {}
+    order: 50
+    layout:
+      position: afterBody
+      priority: 40
 layout:
   groups:
     toolbar:

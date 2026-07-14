@@ -1,489 +1,573 @@
+/* ============================================================
+   FONTS
+   ============================================================ */
 @font-face {
   font-family: 'MyHand';
   src: url('./static/MyHand.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-.graph { display: none; }
-  body[data-slug="map"] .graph { display: block; }
+
+/* ============================================================
+   COLOR TOKENS
+   ============================================================ */
+:root {
+  --paper: #ece8de;
+  --card: #f4f1e8;
+  --ink: #1c2321;
+  --ink-soft: #4a4f45;
+  --teal: #23555f;
+  --copper: #a15a34;
+  --rubric: #8c2f22;
+  --hairline: #c9c2b2;
+  --pastel-yellow: #c99a2e;
+}
+
+/* ============================================================
+   QUARTZ CHROME OVERRIDES
+   (hiding/collapsing Quartz's own default UI we don't use)
+   ============================================================ */
 .page-header { display: none; }
 
-  .crumb-trail {
-    text-align: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 1.4rem;
-  }
-  .crumb-trail a { color: var(--ink-soft); text-decoration: none; }
-  .crumb-trail a:hover { color: var(--teal); }
-  .crumb-trail span { margin: 0 0.5rem; opacity: 0.5; }
-  :root {
-    --paper: #ece8de;
-    --card: #f4f1e8;
-    --ink: #1c2321;
-    --ink-soft: #4a4f45;
-    --teal: #23555f;
-    --copper: #a15a34;
-    --rubric: #8c2f22;
-    --hairline: #c9c2b2;
-    --pastel-yellow: #c99a2e;
-  }
-  /* collapse both reserved sidebar columns now that explorer/darkmode/
-     reader-mode/page-title/spacer/graph are all disabled and search has
-     moved to the header slot instead of left/right */
-  .page > #quartz-body {
-    grid-template-columns: 0 auto 0 !important;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Work Sans', sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
-  .wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 3.5rem 2rem 4.5rem;
-    position: relative;
-    border: 1px solid var(--hairline);
-  }
-  .wrap::before {
-    content: "";
-    position: absolute;
-    inset: 8px;
-    border: 1px solid var(--hairline);
-    pointer-events: none;
-  }
-.page-header {
-    display: none;
-  }
-  .eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--rubric);
-    text-align: center;
-    margin: 0 0 1rem;
-    text-shadow: 1.3px -0.9px 0 rgba(35, 85, 95, 0.4);
-  }
+.graph { display: none; }
+body[data-slug="map"] .graph { display: block; }
 
-  .masthead-smear {
-    position: absolute;
-    top: -6px;
-    right: -70px;
-    width: 820px;
-    height: 400px;
-    z-index: 0;
-    pointer-events: none;
-    transform-origin: 92% 85%;
-  }
+/* collapse both reserved sidebar columns — explorer/darkmode/
+   reader-mode/page-title/spacer are disabled, search moved to
+   header, graph only shows on the Map page */
+.page > #quartz-body {
+  grid-template-columns: 0 auto 0 !important;
+}
 
-  .masthead {
-    font-family: 'MyHand', 'Fraunces', serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 72px;
-    text-align: center;
-    margin: 0 0 1.4rem;
-    letter-spacing: 0.01em;
-    position: relative;
-    z-index: 1;
-  }
+/* remove Quartz's auto-generated "jump to heading" icon and its
+   hover highlight box, everywhere on the site */
+a[role="anchor"] {
+  display: none !important;
+}
+h1:hover, h2:hover, .masthead:hover, .masthead-mini:hover {
+  background: none !important;
+}
 
-  .rule-double { width: 100%; height: 12px; margin-bottom: 0.9rem; }
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; }
 
-  .epigraph {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    font-style: italic;
-    color: var(--ink-soft);
-    text-align: center;
-    margin: 0 0 2.4rem;
-  }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 4.5rem;
+  position: relative;
+  border: 1px solid var(--hairline);
+}
+.wrap::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--hairline);
+  pointer-events: none;
+}
+
+/* ============================================================
+   MAIN HOMEPAGE HEADER (full size)
+   ============================================================ */
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rubric);
+  text-align: center;
+  margin: 0 0 1rem;
+  text-shadow: 1.3px -0.9px 0 rgba(35, 85, 95, 0.4);
+}
+
+.masthead-smear {
+  position: absolute;
+  top: -6px;
+  right: -70px;
+  width: 820px;
+  height: 400px;
+  z-index: 0;
+  pointer-events: none;
+  transform-origin: 92% 85%;
+}
+
+.masthead {
+  font-family: 'MyHand', 'Fraunces', serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 72px;
+  text-align: center;
+  margin: 0 0 1.4rem;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+}
+.masthead a { color: inherit; text-decoration: none; }
+
+.rule-double { width: 100%; height: 12px; margin-bottom: 0.9rem; }
+
+.epigraph {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 0 0 2.4rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 3rem;
+}
+nav a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+nav a:hover { color: var(--teal); }
+
+/* ============================================================
+   MINI HEADER (used on every page except the homepage)
+   ============================================================ */
+.page-header-mini {
+  max-width: 560px;
+  margin: 0 auto 2.4rem;
+  text-align: center;
+}
+.page-header-mini .eyebrow {
+  font-size: 9px;
+  margin-bottom: 0.5rem;
+}
+.page-header-mini .masthead-mini {
+  font-family: 'MyHand', 'Fraunces', serif !important;
+  font-weight: normal;
+  font-size: 34px;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.page-header-mini .masthead-mini:hover { color: var(--rubric); }
+.page-header-mini .crumb-trail { margin: 0.6rem 0 0; }
+
+.crumb-trail {
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+}
+.crumb-trail a { color: var(--ink-soft); text-decoration: none; }
+.crumb-trail a:hover { color: var(--teal); }
+.crumb-trail span { margin: 0 0.5rem; opacity: 0.5; }
+
+/* ============================================================
+   NOTE LAYOUT: main column + margin rail
+   ============================================================ */
+.note-layout {
+  display: grid;
+  grid-template-columns: 1fr 230px;
+  gap: 3rem;
+  align-items: stretch;
+}
+.margin-rail {
+  border-left: 1px dashed var(--hairline);
+  padding-left: 1.5rem;
+  padding-right: 6px;
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline) transparent;
+}
+.margin-rail::-webkit-scrollbar { width: 5px; }
+.margin-rail::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 3px; }
+.margin-rail::-webkit-scrollbar-track { background: transparent; }
+
+.margin-note { margin-bottom: 2.6rem; }
+.margin-note .fn-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--rubric);
+  display: block;
+  margin-bottom: 3px;
+  text-shadow: 1.2px -0.8px 0 rgba(35, 85, 95, 0.4);
+}
+.margin-note .fn-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.margin-scribble {
+  font-family: 'MyHand', 'Kalam', cursive;
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--rubric);
+  margin-bottom: 2.2rem;
+}
+.margin-scribble:nth-of-type(2n) { transform: rotate(-0.8deg); }
+.margin-scribble:nth-of-type(2n+1) { transform: rotate(0.6deg); }
+.margin-scribble.blank {
+  color: var(--ink-soft);
+  opacity: 0.55;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.margin-image {
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  min-height: 100px;
+  margin-bottom: 2.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--ink-soft);
+}
+.margin-image .cap {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   LINKS, FOOTNOTE MARKERS
+   ============================================================ */
+.wikilink {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+.wikilink:hover { color: var(--rubric); }
+
+.fn-marker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--rubric);
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 1px;
+  text-shadow: 1px -0.7px 0 rgba(35, 85, 95, 0.4);
+}
+
+/* ============================================================
+   HOMEPAGE INTRO SECTION
+   ============================================================ */
+.intro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  margin-bottom: 3.4rem;
+  align-items: start;
+}
+.intro h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 1.3;
+  margin: 0 0 0.9rem;
+}
+.intro p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+
+.dropcap {
+  float: left;
+  font-family: 'MyHand', 'Fraunces', serif;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 0.75;
+  color: var(--rubric);
+  padding: 2px 8px 0 0;
+}
+
+.network-panel {
+  border: 1px solid var(--hairline);
+  background: var(--card);
+  padding: 1.2rem 1.2rem 0.8rem;
+}
+.network-panel .cap {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+}
+
+/* ============================================================
+   INDEX GRID
+   ============================================================ */
+.grid-legend {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin: -1.6rem 0 2.6rem;
+  letter-spacing: 0.02em;
+}
+.grid-legend span { margin-right: 1.2rem; }
+.grid-legend b { color: var(--rubric); font-weight: 500; text-shadow: 1px -0.7px 0 rgba(35, 85, 95, 0.4); }
+
+.index-grid {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2.6rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+.index-grid th, .index-grid td {
+  border: 1px solid var(--hairline);
+  padding: 10px 8px;
+  text-align: center;
+}
+.index-grid th {
+  color: var(--rubric);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+}
+.index-grid th:first-child, .index-grid td:first-child {
+  text-align: left;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+}
+.index-grid td { color: var(--ink); }
+
+/* ============================================================
+   SECTION LABELS + ENTRY LIST
+   ============================================================ */
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-label .doodle { flex-shrink: 0; }
+.section-label::after { content: ""; flex: 1; height: 1px; background: var(--hairline); }
+
+.entry {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 1.2rem;
+  align-items: baseline;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--hairline);
+  transition: transform 0.2s ease;
+}
+.entry:hover { transform: translateX(3px); }
+.entry:first-of-type { border-top: 1px solid var(--hairline); }
+.entry .num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--rubric);
+  text-shadow: 1.2px -0.8px 0 rgba(35, 85, 95, 0.4);
+  transition: color 0.2s ease;
+}
+.entry:hover .num { color: var(--teal); }
+.entry .title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 19px;
+  margin: 0 0 3px;
+  transition: color 0.2s ease;
+}
+.entry:hover .title { color: var(--rubric); }
+.entry .title::before {
+  content: "¶ ";
+  color: var(--rubric);
+  font-family: 'Fraunces', serif;
+  text-shadow: 1.4px -1px 0 rgba(35, 85, 95, 0.4);
+  transition: color 0.2s ease;
+}
+.entry:hover .title::before { color: var(--teal); }
+.entry .dek { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+.entry .kind {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.entry .mode {
+  font-family: 'MyHand', 'Kalam', cursive;
+  font-size: 15px;
+  color: var(--rubric);
+  display: block;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   PUBLICATIONS LIST
+   ============================================================ */
+.pub-entry {
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.pub-entry:first-of-type { border-top: 1px solid var(--hairline); }
+.pub-entry .title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 3px; }
+.pub-entry .venue {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+}
+.pub-entry .draws-on { font-size: 13.5px; color: var(--ink-soft); }
+.pub-entry .draws-on .wikilink { margin-right: 4px; }
+
+/* ============================================================
+   PULL QUOTE
+   ============================================================ */
+.pullquote {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin: 3rem 0;
+  padding-top: 0.3rem;
+}
+.pullquote .manicule svg { width: 26px; height: 26px; }
+.pullquote p {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+}
+.pullquote cite {
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   NOTES LIST + FOOTER
+   ============================================================ */
+.notes-section {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hairline);
+}
+.notes-section ol {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  padding-left: 1.2rem;
+}
+.notes-section ol li::marker { color: var(--rubric); }
+
+footer {
+  margin-top: 3.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .wrap { padding: 2.5rem 1.5rem 3rem; }
+  .note-layout { grid-template-columns: 1fr 180px; gap: 1.8rem; }
+  .masthead { font-size: 52px; }
+  .masthead-smear { width: 500px; height: 260px; right: -40px; }
+  .intro { grid-template-columns: 1fr; }
+  .network-panel { order: -1; }
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 2rem 1.1rem 2.5rem; }
+  .wrap::before { inset: 5px; }
+
+  .eyebrow { font-size: 10px; letter-spacing: 0.1em; }
+  .masthead { font-size: 38px; }
+  .masthead-smear { width: 340px; height: 220px; right: -60px; top: -10px; }
+  .epigraph { font-size: 10px; }
 
   nav {
-    display: flex;
-    justify-content: center;
-    gap: 2.4rem;
-    padding: 0.9rem 0;
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.2rem;
+    row-gap: 0.6rem;
   }
-  nav a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  nav a:hover { color: var(--teal); }
+  nav a { font-size: 11px; }
 
-  /* note-layout = main column + running margin rail (renamed from .page
-     to avoid colliding with Quartz's own #quartz-root.page wrapper) */
-  .note-layout {
-    display: grid;
-    grid-template-columns: 1fr 230px;
-    gap: 3rem;
-    align-items: stretch;
-  }
+  .intro { grid-template-columns: 1fr; gap: 1.6rem; margin-bottom: 2rem; }
+  .intro h1 { font-size: 22px; }
+  .dropcap { font-size: 40px; }
+
+  .note-layout { grid-template-columns: 1fr; gap: 0; }
   .margin-rail {
-    border-left: 1px dashed var(--hairline);
-    padding-left: 1.5rem;
-    padding-right: 6px;
-    position: relative;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--hairline) transparent;
-  }
-  .margin-rail::-webkit-scrollbar { width: 5px; }
-  .margin-rail::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 3px; }
-  .margin-rail::-webkit-scrollbar-track { background: transparent; }
-  .margin-note {
-    margin-bottom: 2.6rem;
-  }
-  .margin-note .fn-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--rubric);
-    display: block;
-    margin-bottom: 3px;
-    text-shadow: 1.2px -0.8px 0 rgba(35, 85, 95, 0.4);
-  }
-  .margin-note .fn-text {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-  }
-  .margin-scribble {
-    font-family: 'MyHand', 'Kalam', cursive;
-    font-size: 14px;
-    line-height: 1.3;
-    color: var(--rubric);
-    margin-bottom: 2.2rem;
-  }
-  .margin-scribble:nth-of-type(2n) { transform: rotate(-0.8deg); }
-  .margin-scribble:nth-of-type(2n+1) { transform: rotate(0.6deg); }
-  .margin-scribble.blank {
-    color: var(--ink-soft);
-    opacity: 0.55;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    font-style: italic;
-  }
-  .margin-image {
-    border: 1px solid var(--hairline);
-    border-radius: 3px;
-    min-height: 100px;
-    margin-bottom: 2.6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    color: var(--ink-soft);
-  }
-  .margin-image .cap {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    opacity: 0.7;
+    border-left: none;
+    border-top: 1px dashed var(--hairline);
+    padding-left: 0;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    max-height: none;
+    overflow-y: visible;
   }
 
-  .wikilink {
-    color: var(--teal);
-    text-decoration: underline;
-    text-decoration-style: dotted;
-    text-underline-offset: 2px;
-  }
-  .wikilink:hover { color: var(--rubric); }
+  .index-grid { font-size: 10px; }
+  .index-grid th, .index-grid td { padding: 6px 4px; }
+  .grid-legend { font-size: 10px; }
+  .grid-legend span { margin-right: 0.7rem; display: inline-block; margin-bottom: 4px; }
 
-  .fn-marker {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--rubric);
-    vertical-align: super;
-    line-height: 0;
-    margin-left: 1px;
-    text-shadow: 1px -0.7px 0 rgba(35, 85, 95, 0.4);
-  }
+  .entry { grid-template-columns: 1fr; gap: 0.2rem; }
+  .entry .num { order: -1; }
 
-  /* intro, two column within main */
-  .intro {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
-    margin-bottom: 3.4rem;
-    align-items: start;
-  }
-  .intro h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 27px;
-    line-height: 1.3;
-    margin: 0 0 0.9rem;
-  }
-  .intro p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+  .note-title { font-size: 26px; }
+  .note-meta { grid-template-columns: 80px 1fr; font-size: 11px; }
 
-  .dropcap {
-    float: left;
-    font-family: 'MyHand', 'Fraunces', serif;
-    font-weight: normal;
-    font-size: 64px;
-    line-height: 0.75;
-    color: var(--rubric);
-    padding: 2px 8px 0 0;
-  }
+  .pullquote { grid-template-columns: 24px 1fr; }
+  .pullquote p { font-size: 19px; }
 
-  .network-panel {
-    border: 1px solid var(--hairline);
-    background: var(--card);
-    padding: 1.2rem 1.2rem 0.8rem;
-  }
-  .network-panel .cap {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 0.6rem;
-  }
+  .backlink-item { grid-template-columns: 1fr; gap: 0.2rem; }
 
-  .grid-legend {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-soft);
-    margin: -1.6rem 0 2.6rem;
-    letter-spacing: 0.02em;
-  }
-  .grid-legend span { margin-right: 1.2rem; }
-  .grid-legend b { color: var(--rubric); font-weight: 500; text-shadow: 1px -0.7px 0 rgba(35, 85, 95, 0.4); }
-
-  .entry .mode {
-    font-family: 'MyHand', 'Kalam', cursive;
-    font-size: 15px;
-    color: var(--rubric);
-    display: block;
-    margin-top: 2px;
-  }
-
-  .index-grid {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 2.6rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-  }
-  .index-grid th, .index-grid td {
-    border: 1px solid var(--hairline);
-    padding: 10px 8px;
-    text-align: center;
-  }
-  .index-grid th {
-    color: var(--rubric);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 11px;
-  }
-  .index-grid th:first-child, .index-grid td:first-child {
-    text-align: left;
-    color: var(--ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 11px;
-  }
-  .index-grid td { color: var(--ink); }
-
-  .section-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin: 0 0 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .section-label .doodle { flex-shrink: 0; }
-  .section-label::after { content: ""; flex: 1; height: 1px; background: var(--hairline); }
-
-  .entry {
-    display: grid;
-    grid-template-columns: 40px 1fr auto;
-    gap: 1.2rem;
-    align-items: baseline;
-    padding: 1.05rem 0;
-    border-bottom: 1px solid var(--hairline);
-    transition: transform 0.2s ease;
-  }
-  .entry:hover { transform: translateX(3px); }
-  .entry:first-of-type { border-top: 1px solid var(--hairline); }
-  .entry .num { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--rubric); text-shadow: 1.2px -0.8px 0 rgba(35, 85, 95, 0.4); transition: color 0.2s ease; }
-  .entry:hover .num { color: var(--teal); }
-  .entry .title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 3px; transition: color 0.2s ease; }
-  .entry:hover .title { color: var(--rubric); }
-  .entry .title::before { content: "¶ "; color: var(--rubric); font-family: 'Fraunces', serif; text-shadow: 1.4px -1px 0 rgba(35, 85, 95, 0.4); transition: color 0.2s ease; }
-  .entry:hover .title::before { color: var(--teal); }
-  .entry .dek { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
-  .entry .kind {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    white-space: nowrap;
-  }
-
-  .pub-entry {
-    padding: 1.05rem 0;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .pub-entry:first-of-type { border-top: 1px solid var(--hairline); }
-  .pub-entry .title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 3px; }
-  .pub-entry .venue {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    margin: 0 0 6px;
-  }
-  .pub-entry .draws-on {
-    font-size: 13.5px;
-    color: var(--ink-soft);
-  }
-  .pub-entry .draws-on .wikilink { margin-right: 4px; }
-
-  .pullquote {
-    display: grid;
-    grid-template-columns: 32px 1fr;
-    gap: 1rem;
-    align-items: start;
-    margin: 3rem 0;
-    padding-top: 0.3rem;
-  }
-  .pullquote .manicule svg { width: 26px; height: 26px; }
-  .pullquote p {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 1.5;
-    color: var(--ink);
-    margin: 0 0 0.5rem;
-  }
-  .pullquote cite {
-    font-family: 'IBM Plex Mono', monospace;
-    font-style: normal;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-
-  .notes-section {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--hairline);
-  }
-  .notes-section ol {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-    padding-left: 1.2rem;
-  }
-  .notes-section ol li::marker { color: var(--rubric); }
-
-  footer {
-    margin-top: 3.5rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--hairline);
-    display: flex;
-    justify-content: space-between;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-
-  /* ===== RESPONSIVE ===== */
-
-  /* Tablet: narrow the margin rail, don't stack yet */
-  @media (max-width: 900px) {
-    .wrap { padding: 2.5rem 1.5rem 3rem; }
-    .note-layout { grid-template-columns: 1fr 180px; gap: 1.8rem; }
-    .masthead { font-size: 52px; }
-    .masthead-smear { width: 500px; height: 260px; right: -40px; }
-    .intro { grid-template-columns: 1fr; }
-    .network-panel { order: -1; }
-  }
-
-  /* Mobile: stack everything, margin rail moves below content */
-  @media (max-width: 640px) {
-    .wrap { padding: 2rem 1.1rem 2.5rem; }
-    .wrap::before { inset: 5px; }
-
-    .eyebrow { font-size: 10px; letter-spacing: 0.1em; }
-    .masthead { font-size: 38px; }
-    .masthead-smear { width: 340px; height: 220px; right: -60px; top: -10px; }
-    .epigraph { font-size: 10px; }
-
-    nav {
-      flex-wrap: wrap;
-      gap: 0.9rem 1.2rem;
-      row-gap: 0.6rem;
-    }
-    nav a { font-size: 11px; }
-
-    .intro { grid-template-columns: 1fr; gap: 1.6rem; margin-bottom: 2rem; }
-    .intro h1 { font-size: 22px; }
-    .dropcap { font-size: 40px; }
-
-    .note-layout {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .margin-rail {
-      border-left: none;
-      border-top: 1px dashed var(--hairline);
-      padding-left: 0;
-      padding-top: 1.5rem;
-      margin-top: 2rem;
-      max-height: none;
-      overflow-y: visible;
-    }
-
-    .index-grid { font-size: 10px; }
-    .index-grid th, .index-grid td { padding: 6px 4px; }
-    .grid-legend { font-size: 10px; }
-    .grid-legend span { margin-right: 0.7rem; display: inline-block; margin-bottom: 4px; }
-
-    .entry {
-      grid-template-columns: 1fr;
-      gap: 0.2rem;
-    }
-    .entry .num { order: -1; }
-
-    .note-title { font-size: 26px; }
-    .note-meta { grid-template-columns: 80px 1fr; font-size: 11px; }
-
-    .pullquote { grid-template-columns: 24px 1fr; }
-    .pullquote p { font-size: 19px; }
-
-    .backlink-item { grid-template-columns: 1fr; gap: 0.2rem; }
-
-    footer { flex-direction: column; gap: 4px; text-align: center; }
-  }
+  footer { flex-direction: column; gap: 4px; text-align: center; }
+}
