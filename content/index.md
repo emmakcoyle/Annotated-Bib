@@ -55,4 +55,67 @@ Sources, ideas, and working theory — a running archive spanning performance st
   <a href="/About">About</a>
 </nav>
 
+<table class="index-grid">
+  <tr>
+    <th>&nbsp;</th>
+    <th>Text</th>
+    <th>Image</th>
+    <th>Performance</th>
+  </tr>
+  <tr>
+    <th>Practice</th>
+    <td>—</td>
+    <td>—</td>
+    <td>I.a·R</td>
+  </tr>
+  <tr>
+    <th>Theory</th>
+    <td>II.a·C</td>
+    <td>—</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <th>Archive</th>
+    <td>III.a·S</td>
+    <td>—</td>
+    <td>I.b·T</td>
+  </tr>
+</table>
+<p class="grid-legend">
+  <span><b>S</b> summary</span>
+  <span><b>C</b> critique</span>
+  <span><b>R</b> creative reflection</span>
+  <span><b>T</b> tangent</span>
+</p>
+
+<p class="section-label">Recently added</p>
+
+<div class="entry">
+  <span class="num">I.a</span>
+  <div>
+    <p class="title">Source title</p>
+    <p class="dek">One-line summary of what this source argues or documents.</p>
+    <span class="mode">creative reflection</span>
+  </div>
+  <span class="kind">Interview</span>
+</div>
+<div class="entry">
+  <span class="num">II.a</span>
+  <div>
+    <p class="title">Concept or claim</p>
+    <p class="dek">Your own developing idea, linked across sources.</p>
+    <span class="mode">critique</span>
+  </div>
+  <span class="kind">Idea note</span>
+</div>
+<div class="entry">
+  <span class="num">III.a</span>
+  <div>
+    <p class="title">Article or book title</p>
+    <p class="dek">Summary or annotation of the text.</p>
+    <span class="mode">summary</span>
+  </div>
+  <span class="kind">Reading note</span>
+</div>
+
 </div>
