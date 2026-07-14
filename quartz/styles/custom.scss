@@ -4,7 +4,22 @@
   font-weight: normal;
   font-style: normal;
 }
+.graph { display: none; }
+  body[data-slug="map"] .graph { display: block; }
+.page-header { display: none; }
 
+  .crumb-trail {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 1.4rem;
+  }
+  .crumb-trail a { color: var(--ink-soft); text-decoration: none; }
+  .crumb-trail a:hover { color: var(--teal); }
+  .crumb-trail span { margin: 0 0.5rem; opacity: 0.5; }
   :root {
     --paper: #ece8de;
     --card: #f4f1e8;
