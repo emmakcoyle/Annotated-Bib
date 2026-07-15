@@ -258,7 +258,6 @@ plugins:
       position: beforeBody
       priority: 15
       display: all
-
   - source: github:quartz-community/obsidian-plugin-excalidraw
     enabled: true
     options:
@@ -280,6 +279,20 @@ plugins:
     layout:
       position: beforeBody
       priority: 5
+  - source: github:emmakcoyle/annotated-foldnav
+    enabled: true
+    options: {}
+    order: 50
+    layout:
+      position: beforeBody
+      priority: 1
+  - source: github:emmakcoyle/annotated-marginrail
+    enabled: true
+    options: {}
+    order: 50
+    layout:
+      position: right
+      priority: 5
 layout:
   groups:
     toolbar:
@@ -292,7 +305,6 @@ layout:
         beforeBody: []
         left: []
         right: []
-    content: {}
     folder:
       exclude:
         - reader-mode

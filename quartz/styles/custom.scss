@@ -25,7 +25,6 @@
 
 /* ============================================================
    QUARTZ CHROME OVERRIDES
-   (hiding/collapsing Quartz's own default UI we don't use)
    ============================================================ */
 .page-header { display: none; }
 .page-header:has(.page-header-mini) {
@@ -42,27 +41,16 @@
 .graph { display: none; }
 body[data-slug="map"] .graph { display: block; }
 
-/* collapse both reserved sidebar columns — explorer/darkmode/
-   reader-mode/page-title/spacer are disabled, graph only shows
-   on the Map page */
 .page > #quartz-body {
   grid-template-columns: 0 auto 0 !important;
   display: flex;
   flex-direction: column;
 }
-
-/* force stacking order within #quartz-body: real content (.center,
-   which holds our markdown + the afterBody entry-list plugin) comes
-   first; leftover site-title/search/backlinks/footer get pushed
-   below as one group instead of interleaving with real content */
 .page > #quartz-body .center { order: 1; }
 .page > #quartz-body .left.sidebar { order: 2; }
 .page > #quartz-body .right.sidebar { order: 3; }
 .page > #quartz-body footer { order: 4; }
 
-/* wrap the pushed-down leftover chrome in a continuation of the
-   .wrap frame, and hide the parts we don't want repeated mid-page.
-   Search stays visible, moved to the very bottom of the page. */
 .wrap {
   border-bottom: none;
   padding-bottom: 2rem;
@@ -104,8 +92,6 @@ body[data-slug="map"] .graph { display: block; }
   max-width: 320px;
 }
 
-/* remove Quartz's auto-generated "jump to heading" icon and its
-   hover highlight box, everywhere on the site */
 a[role="anchor"] {
   display: none !important;
 }
@@ -114,7 +100,83 @@ h1:hover, h2:hover, .masthead:hover, .masthead-mini:hover {
 }
 
 /* ============================================================
-   TAG BROWSE PILLS (Sources/Ideas/Publications)
+   FOLD-DOWN NAV
+   Two mechanisms share these classes:
+   - Notes (via annotated-foldnav plugin): checkbox + label
+   - Six static pages (hand-written HTML): <details>/<summary>
+   ============================================================ */
+.fold-nav-wrap {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 100;
+}
+
+/* checkbox mechanism (notes) */
+.fold-nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.fold-nav-toggle:checked ~ .fold-nav-panel {
+  display: flex;
+}
+
+/* the toggle button itself — shared by <label> (notes) and <summary> (static) */
+.fold-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+.fold-nav-button::-webkit-details-marker { display: none; }
+.fold-nav-button:hover { color: var(--teal); border-color: var(--teal); }
+
+/* the dropdown panel — hidden by default (checkbox mechanism's base state);
+   details mechanism gets an explicit override below since it has no
+   :checked equivalent to hook into */
+.fold-nav-panel {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  min-width: 160px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 0.6rem 0;
+  flex-direction: column;
+}
+details.fold-nav-wrap[open] .fold-nav-panel {
+  display: flex !important;
+}
+.fold-nav-panel a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+.fold-nav-panel a:hover { color: var(--teal); background: var(--card); }
+
+/* ============================================================
+   TAG BROWSE PILLS
    ============================================================ */
 .tag-browse { margin-bottom: 2rem; }
 .tag-browse-list {
@@ -166,7 +228,7 @@ body {
 }
 
 /* ============================================================
-   MAIN HOMEPAGE HEADER (full size)
+   MAIN HOMEPAGE HEADER
    ============================================================ */
 .eyebrow {
   font-family: 'IBM Plex Mono', monospace;
@@ -234,7 +296,7 @@ nav {
 .wrap nav a:hover { color: var(--teal); }
 
 /* ============================================================
-   MINI HEADER (used on every page except the homepage)
+   MINI HEADER
    ============================================================ */
 .page-header-mini {
   max-width: 560px;
@@ -279,6 +341,12 @@ nav {
   z-index: 1;
 }
 
+.page-header-mini .eyebrow,
+.crumb-trail {
+  font-size: 10px !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  letter-spacing: 0.06em !important;
+}
 .crumb-trail {
   text-align: center;
   font-family: 'IBM Plex Mono', monospace;
@@ -320,8 +388,20 @@ nav {
 .bib-name-list li a:hover { color: var(--teal); }
 
 /* ============================================================
-   NOTE LAYOUT: main column + margin rail
+   NOTE LAYOUT: margin rail + reading-width constraint
    ============================================================ */
+body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-slug="ideas"]):not([data-slug="publications"]):not([data-slug="bibliography"]):not([data-slug="map"]):not([data-slug="about"]) .markdown-preview-view {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.right.sidebar:has(.margin-rail) {
+  width: 230px;
+  padding: 2rem 1.5rem;
+}
+.page > #quartz-body:has(.margin-rail) {
+  grid-template-columns: 0 auto 230px !important;
+}
+
 .note-layout {
   display: grid;
   grid-template-columns: 1fr 230px;
@@ -568,6 +648,18 @@ nav {
   margin-top: 2px;
 }
 
+.entry-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+.entry-meta .date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+
 /* ============================================================
    PUBLICATIONS LIST
    ============================================================ */
@@ -650,8 +742,7 @@ footer {
 }
 
 /* ============================================================
-   REAL NOTE CONTENT (applies inside every actual Obsidian note,
-   not just the six hand-built pages)
+   REAL NOTE CONTENT
    ============================================================ */
 .markdown-preview-view h1:not(.masthead) {
   font-family: 'Fraunces', serif;
@@ -755,20 +846,40 @@ footer {
 
   footer { flex-direction: column; gap: 4px; text-align: center; }
 }
-.entry-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 3px;
+.markdown-preview-view .footnotes {
+  display: none;
 }
-.entry-meta .date {
+.margin-rail .footnotes {
+  display: block;
+}
+.margin-rail .footnotes h2 { display: none; }
+.margin-rail .footnotes ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: fn;
+}
+.margin-rail .footnotes li {
+  counter-increment: fn;
+  margin-bottom: 1.6rem;
+  position: relative;
+  padding-left: 1.4rem;
+}
+.margin-rail .footnotes li::before {
+  content: counter(fn) ".";
+  position: absolute;
+  left: 0;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
-  color: var(--ink-soft);
+  color: var(--rubric);
 }
-.page-header-mini .eyebrow,
-.crumb-trail {
-  font-size: 10px !important;
-  font-family: 'IBM Plex Mono', monospace !important;
-  letter-spacing: 0.06em !important;
+.margin-rail .footnotes p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.margin-rail .footnotes a[data-footnote-backref] {
+  display: none;
 }

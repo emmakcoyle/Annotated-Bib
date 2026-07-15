@@ -13,6 +13,18 @@
       "commit": "7ef7d24f1fcbe257f847f610d5eb69d53f341ab0",
       "installedAt": "2026-07-15T21:22:04.697Z"
     },
+    "annotated-foldnav": {
+      "source": "github:emmakcoyle/annotated-foldnav",
+      "resolved": "https://github.com/emmakcoyle/annotated-foldnav.git",
+      "commit": "3126b3667f9be7333bea59f32b84863ab4d859ae",
+      "installedAt": "2026-07-15T21:47:50.966Z"
+    },
+    "annotated-marginrail": {
+      "source": "github:emmakcoyle/annotated-marginrail",
+      "resolved": "https://github.com/emmakcoyle/annotated-marginrail.git",
+      "commit": "65ed1c187365cf12bd9e699b8416e6357146f7a3",
+      "installedAt": "2026-07-15T22:31:42.637Z"
+    },
     "annotated-noteheader": {
       "source": "github:emmakcoyle/annotated-noteheader",
       "resolved": "https://github.com/emmakcoyle/annotated-noteheader.git",
