@@ -40,34 +40,4 @@ title: Publications
 
 <p style="text-align:center; color:var(--ink-soft); max-width:500px; margin:0 auto 2.4rem;">Finished pieces, and what research fed into them.</p>
 
-<div class="pub-entry">
-  <p class="title">Manifesto for a Lover</p>
-  <p class="venue">Artist's book — Fanzineist Vienna International Art Book Exhibition, 2025</p>
-  <p class="draws-on">draws on: [related idea note]</p>
-</div>
-
-<div class="pub-entry">
-  <p class="title">Internal Wetlands</p>
-  <p class="venue">Surreal stream-of-consciousness prose — in progress</p>
-  <p class="draws-on">draws on: [related idea note]</p>
-</div>
-
-<div class="pub-entry">
-  <p class="title">The Triumph of Folly</p>
-  <p class="venue">Invited Dress Productions</p>
-  <p class="draws-on">draws on: [related idea note]</p>
-</div>
-
-<div class="pub-entry">
-  <p class="title">Secret Forest</p>
-  <p class="venue">Invited Dress Productions</p>
-  <p class="draws-on">draws on: [related idea note]</p>
-</div>
-
-<div class="pub-entry">
-  <p class="title">Incurable States of Being</p>
-  <p class="venue">Novel, in progress</p>
-  <p class="draws-on">draws on: [related idea note]</p>
-</div>
-
 </div>

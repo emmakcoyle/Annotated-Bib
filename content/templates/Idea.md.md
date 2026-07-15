@@ -1,10 +1,12 @@
 ---
-title: 
+title:
 type: idea
 kind: Idea note
-mode: 
-coordinate: 
-description: 
+mode:
+coordinate:
+description:
 tags: []
 authors: []
+date_published:
+pinned:
 ---

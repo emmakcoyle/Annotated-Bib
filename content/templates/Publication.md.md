@@ -1,10 +1,12 @@
 ---
-title: 
+title:
 type: publication
-kind: 
-mode: 
-coordinate: 
-description: 
+kind:
+mode:
+coordinate:
+description:
 tags: []
 authors: []
+date_published:
+pinned:
 ---
