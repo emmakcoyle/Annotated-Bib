@@ -32,7 +32,7 @@ title: Annotated
 </svg>
 
 <p class="eyebrow">an interdisciplinary research archive</p>
-<h1 class="masthead">Annotated</h1>
+<h1 class="masthead"><a href="/">Annotated</a></h1>
 
 <svg class="rule-double" viewBox="0 0 880 12" preserveAspectRatio="none">
   <path d="M2 6 Q40 2 90 7 T190 5 T290 8 T390 4 T490 7 T590 5 T690 8 T790 4 T878 6"
@@ -51,6 +51,7 @@ Sources, ideas, and working theory — a running archive spanning performance st
   <a href="/Sources">Sources</a>
   <a href="/Ideas">Ideas</a>
   <a href="/Publications">Publications</a>
+  <a href="/Bibliography">Bibliography</a>
   <a href="/Map">Map</a>
   <a href="/About">About</a>
 </nav>
@@ -89,33 +90,5 @@ Sources, ideas, and working theory — a running archive spanning performance st
 </p>
 
 <p class="section-label">Recently added</p>
-
-<div class="entry">
-  <span class="num">I.a</span>
-  <div>
-    <p class="title">Source title</p>
-    <p class="dek">One-line summary of what this source argues or documents.</p>
-    <span class="mode">creative reflection</span>
-  </div>
-  <span class="kind">Interview</span>
-</div>
-<div class="entry">
-  <span class="num">II.a</span>
-  <div>
-    <p class="title">Concept or claim</p>
-    <p class="dek">Your own developing idea, linked across sources.</p>
-    <span class="mode">critique</span>
-  </div>
-  <span class="kind">Idea note</span>
-</div>
-<div class="entry">
-  <span class="num">III.a</span>
-  <div>
-    <p class="title">Article or book title</p>
-    <p class="dek">Summary or annotation of the text.</p>
-    <span class="mode">summary</span>
-  </div>
-  <span class="kind">Reading note</span>
-</div>
 
 </div>

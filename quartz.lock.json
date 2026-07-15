@@ -10,8 +10,14 @@
     "annotated-entrylist": {
       "source": "github:emmakcoyle/annotated-entrylist",
       "resolved": "https://github.com/emmakcoyle/annotated-entrylist.git",
-      "commit": "504a338e75b2dea5023d94f288c558abfdbcf8ac",
-      "installedAt": "2026-07-14T17:54:25.704Z"
+      "commit": "ce895efaeb3a91268e9e78eeaf11fa46af168ce2",
+      "installedAt": "2026-07-15T16:27:27.639Z"
+    },
+    "annotated-noteheader": {
+      "source": "github:emmakcoyle/annotated-noteheader",
+      "resolved": "https://github.com/emmakcoyle/annotated-noteheader.git",
+      "commit": "cc04bca970a0c094c2c696e127baec24ed940537",
+      "installedAt": "2026-07-15T16:39:26.413Z"
     },
     "article-title": {
       "source": "github:quartz-community/article-title",

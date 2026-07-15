@@ -1,5 +1,5 @@
 ---
-title: Sources
+title: Bibliography
 ---
 
 <div class="wrap">
@@ -33,11 +33,11 @@ title: Sources
     <path d="M2 6 Q40 2 90 7 T190 5 T290 8 T390 4 T490 7 T590 5 T690 8 T790 4 T878 6"
           fill="none" stroke="#8c2f22" stroke-width="1.3" stroke-linecap="round" opacity="0.8"/>
   </svg>
-  <p class="crumb-trail"><a href="/">Home</a><span>/</span>Sources</p>
+  <p class="crumb-trail"><a href="/">Home</a><span>/</span>Bibliography</p>
 </div>
 
-<h1 class="note-title" style="text-align:center; font-size:32px; font-family:'MyHand', 'Fraunces', serif; font-weight:normal; margin:0 0 1.4rem;">Sources</h1>
+<h1 class="note-title" style="text-align:center; font-size:32px; font-family:'MyHand', 'Fraunces', serif; font-weight:normal; margin:0 0 1.4rem;">Bibliography</h1>
 
-<p style="text-align:center; color:var(--ink-soft); max-width:500px; margin:0 auto 2.4rem;">Every interview, talk, and reading — annotated, not just cited.</p>
+<p style="text-align:center; color:var(--ink-soft); max-width:500px; margin:0 auto 2.4rem;">Every source in the archive, alphabetically.</p>
 
 </div>

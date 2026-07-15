@@ -28,15 +28,80 @@
    (hiding/collapsing Quartz's own default UI we don't use)
    ============================================================ */
 .page-header { display: none; }
+.page-header:has(.page-header-mini) {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0;
+}
+.page-header .popover-hint > nav.breadcrumb-container,
+.page-header .note-properties {
+  display: none;
+}
 
 .graph { display: none; }
 body[data-slug="map"] .graph { display: block; }
 
 /* collapse both reserved sidebar columns — explorer/darkmode/
-   reader-mode/page-title/spacer are disabled, search moved to
-   header, graph only shows on the Map page */
+   reader-mode/page-title/spacer are disabled, graph only shows
+   on the Map page */
 .page > #quartz-body {
   grid-template-columns: 0 auto 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* force stacking order within #quartz-body: real content (.center,
+   which holds our markdown + the afterBody entry-list plugin) comes
+   first; leftover site-title/search/backlinks/footer get pushed
+   below as one group instead of interleaving with real content */
+.page > #quartz-body .center { order: 1; }
+.page > #quartz-body .left.sidebar { order: 2; }
+.page > #quartz-body .right.sidebar { order: 3; }
+.page > #quartz-body footer { order: 4; }
+
+/* wrap the pushed-down leftover chrome in a continuation of the
+   .wrap frame, and hide the parts we don't want repeated mid-page.
+   Search stays visible, moved to the very bottom of the page. */
+.wrap {
+  border-bottom: none;
+  padding-bottom: 2rem;
+}
+.page-footer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 3.5rem;
+  border: 1px solid var(--hairline);
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+}
+.page-footer h2.page-title,
+.page-footer footer {
+  display: none;
+}
+.page-footer .entry-list-block {
+  order: 1;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.page-footer .backlinks { order: 2; }
+.page-footer .flex-component { order: 3; }
+.page-footer .search {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--hairline);
+}
+.page-footer .search input {
+  font-family: 'Work Sans', sans-serif;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+  padding: 0.6rem 0.9rem;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 320px;
 }
 
 /* remove Quartz's auto-generated "jump to heading" icon and its
@@ -47,6 +112,28 @@ a[role="anchor"] {
 h1:hover, h2:hover, .masthead:hover, .masthead-mini:hover {
   background: none !important;
 }
+
+/* ============================================================
+   TAG BROWSE PILLS (Sources/Ideas/Publications)
+   ============================================================ */
+.tag-browse { margin-bottom: 2rem; }
+.tag-browse-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.tag-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  padding: 0.4rem 0.9rem;
+}
+.tag-pill:hover { background: var(--card); color: var(--teal); }
 
 /* ============================================================
    BASE
@@ -114,7 +201,7 @@ body {
   position: relative;
   z-index: 1;
 }
-.masthead a { color: inherit; text-decoration: none; }
+.wrap .masthead a { color: inherit; text-decoration: none; background: none; }
 
 .rule-double { width: 100%; height: 12px; margin-bottom: 0.9rem; }
 
@@ -136,7 +223,7 @@ nav {
   border-bottom: 1px solid var(--hairline);
   margin-bottom: 3rem;
 }
-nav a {
+.wrap nav a {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.1em;
@@ -144,7 +231,7 @@ nav a {
   color: var(--ink);
   text-decoration: none;
 }
-nav a:hover { color: var(--teal); }
+.wrap nav a:hover { color: var(--teal); }
 
 /* ============================================================
    MINI HEADER (used on every page except the homepage)
@@ -153,6 +240,8 @@ nav a:hover { color: var(--teal); }
   max-width: 560px;
   margin: 0 auto 2.4rem;
   text-align: center;
+  position: relative;
+  overflow: visible;
 }
 .page-header-mini .eyebrow {
   font-size: 9px;
@@ -164,11 +253,31 @@ nav a:hover { color: var(--teal); }
   font-size: 34px;
   color: var(--ink);
   text-decoration: none;
+  background: none;
   display: inline-block;
   margin-bottom: 0.5rem;
 }
+.page-header-mini .masthead-mini a { background: none; }
 .page-header-mini .masthead-mini:hover { color: var(--rubric); }
 .page-header-mini .crumb-trail { margin: 0.6rem 0 0; }
+
+.page-header-mini .masthead-smear-mini {
+  position: absolute;
+  top: -20px;
+  right: -60px;
+  width: 340px;
+  height: 170px;
+  z-index: 0;
+  pointer-events: none;
+}
+.page-header-mini .eyebrow,
+.page-header-mini .masthead-mini,
+.page-header-mini .rule-double,
+.page-header-mini .crumb-trail,
+.page-header-mini .section-label {
+  position: relative;
+  z-index: 1;
+}
 
 .crumb-trail {
   text-align: center;
@@ -182,6 +291,33 @@ nav a:hover { color: var(--teal); }
 .crumb-trail a { color: var(--ink-soft); text-decoration: none; }
 .crumb-trail a:hover { color: var(--teal); }
 .crumb-trail span { margin: 0 0.5rem; opacity: 0.5; }
+
+/* ============================================================
+   BIBLIOGRAPHY NAME LIST
+   ============================================================ */
+.bib-letter-group { margin-bottom: 1.6rem; }
+.bib-letter {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--rubric);
+  margin: 0 0 0.5rem;
+}
+.bib-name-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 3rem;
+}
+.bib-name-list li {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 18px;
+  padding: 0.4rem 0;
+  break-inside: avoid;
+}
+.bib-name-list li a:hover { color: var(--teal); }
 
 /* ============================================================
    NOTE LAYOUT: main column + margin rail
@@ -508,6 +644,54 @@ footer {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
+}
+.center > hr {
+  display: none;
+}
+
+/* ============================================================
+   REAL NOTE CONTENT (applies inside every actual Obsidian note,
+   not just the six hand-built pages)
+   ============================================================ */
+.markdown-preview-view h1:not(.masthead) {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+  margin: 0 0 1.4rem;
+}
+.markdown-preview-view h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 2.2rem 0 0.9rem;
+}
+.markdown-preview-view h2::before {
+  content: "¶ ";
+  color: var(--rubric);
+}
+.markdown-preview-view p {
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0 0 1.1rem;
+}
+.markdown-preview-view a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+.markdown-preview-view a:hover { color: var(--rubric); }
+.markdown-preview-view blockquote {
+  border-left: 2px solid var(--rubric);
+  padding-left: 1.2rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 1.5rem 0;
+}
+.markdown-preview-view hr {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: 2rem 0;
 }
 
 /* ============================================================

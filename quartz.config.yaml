@@ -166,7 +166,7 @@ plugins:
     enabled: true
     layout:
       position: afterBody
-      priority: 20
+      priority: 70
       group: toolbar
       groupOptions:
         grow: true
@@ -258,13 +258,7 @@ plugins:
       position: beforeBody
       priority: 15
       display: all
-  - source:
-      name: quartz-themes
-      repo: github:saberzero1/quartz-themes
-      subdir: plugin
-    enabled: false
-    options:
-      theme: default
+
   - source: github:quartz-community/obsidian-plugin-excalidraw
     enabled: true
     options:
@@ -279,6 +273,13 @@ plugins:
     layout:
       position: afterBody
       priority: 40
+  - source: github:emmakcoyle/annotated-noteheader
+    enabled: true
+    options: {}
+    order: 50
+    layout:
+      position: beforeBody
+      priority: 5
 layout:
   groups:
     toolbar:
