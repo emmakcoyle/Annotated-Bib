@@ -10,8 +10,8 @@
     "annotated-entrylist": {
       "source": "github:emmakcoyle/annotated-entrylist",
       "resolved": "https://github.com/emmakcoyle/annotated-entrylist.git",
-      "commit": "438d17511de61da4a927342648678e7688cdf634",
-      "installedAt": "2026-07-15T17:08:05.500Z"
+      "commit": "88679f63427d29e8f6454e40320c85085e333749",
+      "installedAt": "2026-07-15T20:47:50.393Z"
     },
     "annotated-noteheader": {
       "source": "github:emmakcoyle/annotated-noteheader",

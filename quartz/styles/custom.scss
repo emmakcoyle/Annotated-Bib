@@ -282,7 +282,7 @@ nav {
 .crumb-trail {
   text-align: center;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -765,4 +765,10 @@ footer {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   color: var(--ink-soft);
+}
+.page-header-mini .eyebrow,
+.crumb-trail {
+  font-size: 10px !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  letter-spacing: 0.06em !important;
 }

@@ -8,5 +8,5 @@ description:
 tags: []
 authors: []
 date_published:
-pinned:
+pinned: false
 ---
