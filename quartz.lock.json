@@ -218,7 +218,7 @@
       "installedAt": "2026-06-03T13:32:35.815Z"
     },
     "obsidian-plugin-excalidraw": {
-      "source": "github:quartz-community/obsidian-plugin-excalidraw",
+      "source": "github:quartz-community/obsidian-plugin-excalidraw.git",
       "resolved": "https://github.com/quartz-community/obsidian-plugin-excalidraw.git",
       "commit": "dad0a4c0abdc8b3c2786277a2cbd67dc039c754c",
       "installedAt": "2026-06-03T13:32:35.851Z"
@@ -313,10 +313,10 @@
       "installedAt": "2026-06-03T13:32:36.346Z"
     },
     "tag-page": {
-      "source": "github:quartz-community/tag-page",
-      "resolved": "https://github.com/quartz-community/tag-page.git",
-      "commit": "eabf3eec55c0bab7f49e69957341f34d2ae3c5a1",
-      "installedAt": "2026-06-03T13:32:36.377Z"
+      "source": "github:emmakcoyle/tag-page",
+      "resolved": "https://github.com/emmakcoyle/tag-page.git",
+      "commit": "e29c1e8dc1497c5941dc5e737c91fe3810c1c6e1",
+      "installedAt": "2026-07-16T23:00:00.000Z"
     },
     "unlisted-pages": {
       "source": "github:quartz-community/unlisted-pages",
