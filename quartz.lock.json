@@ -10,8 +10,8 @@
     "annotated-entrylist": {
       "source": "github:emmakcoyle/annotated-entrylist",
       "resolved": "https://github.com/emmakcoyle/annotated-entrylist.git",
-      "commit": "7ef7d24f1fcbe257f847f610d5eb69d53f341ab0",
-      "installedAt": "2026-07-15T21:22:04.697Z"
+      "commit": "0b67d19f7cfe5f59ec4441003d9ba720535a8b30",
+      "installedAt": "2026-07-16T15:50:01.710Z"
     },
     "annotated-foldnav": {
       "source": "github:emmakcoyle/annotated-foldnav",
@@ -22,14 +22,14 @@
     "annotated-gridbox": {
       "source": "github:emmakcoyle/annotated-gridbox",
       "resolved": "https://github.com/emmakcoyle/annotated-gridbox.git",
-      "commit": "ff353c49bea504d817f4935459ca12c97e8d05dc",
-      "installedAt": "2026-07-16T03:29:51.708Z"
+      "commit": "a7f45186817e166ecf42462c8b2ac5b75f7201b7",
+      "installedAt": "2026-07-16T16:29:50.918Z"
     },
     "annotated-kindmode": {
       "source": "github:emmakcoyle/annotated-kindmode",
       "resolved": "https://github.com/emmakcoyle/annotated-kindmode.git",
-      "commit": "61126c1e19deaa8e39bb08aa21057e8e11f205d2",
-      "installedAt": "2026-07-16T03:12:48.033Z"
+      "commit": "2337863f5e81d808d4629aab1a791553d5399a19",
+      "installedAt": "2026-07-16T16:29:50.995Z"
     },
     "annotated-marginrail": {
       "source": "github:emmakcoyle/annotated-marginrail",
@@ -42,6 +42,12 @@
       "resolved": "https://github.com/emmakcoyle/annotated-noteheader.git",
       "commit": "06ed450131075972218c887859b48af9ca7f88c3",
       "installedAt": "2026-07-15T21:22:04.711Z"
+    },
+    "annotated-recent": {
+      "source": "github:emmakcoyle/annotated-recent",
+      "resolved": "https://github.com/emmakcoyle/annotated-recent.git",
+      "commit": "0bbe2ab6da52e497aed9dfb824bbd0a1432a6fb6",
+      "installedAt": "2026-07-16T16:04:23.253Z"
     },
     "article-title": {
       "source": "github:quartz-community/article-title",

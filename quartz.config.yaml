@@ -304,6 +304,13 @@ plugins:
     layout:
       position: afterBody
       priority: 39
+  - source: github:emmakcoyle/annotated-recent
+    enabled: true
+    options: {}
+    order: 50
+    layout:
+      position: afterBody
+      priority: 5
 layout:
   groups:
     toolbar:

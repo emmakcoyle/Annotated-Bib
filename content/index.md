@@ -75,6 +75,4 @@ Sources, ideas, and working theory — a running archive spanning performance st
   <a href="/About">About</a>
 </nav>
 
-<p class="section-label">Recently added</p>
-
 </div>
