@@ -28,8 +28,8 @@
     "annotated-kindmode": {
       "source": "github:emmakcoyle/annotated-kindmode",
       "resolved": "https://github.com/emmakcoyle/annotated-kindmode.git",
-      "commit": "2337863f5e81d808d4629aab1a791553d5399a19",
-      "installedAt": "2026-07-16T16:29:50.995Z"
+      "commit": "2fdf7635f39089d1fe6983cd57117873e830af39",
+      "installedAt": "2026-07-16T22:07:54.274Z"
     },
     "annotated-marginrail": {
       "source": "github:emmakcoyle/annotated-marginrail",

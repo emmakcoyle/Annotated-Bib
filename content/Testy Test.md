@@ -14,11 +14,18 @@ pinned:
 marginnotes:
 ---
 ## A real heading
+##a new heading
+
+## heading
+
 
 Some text under it.
 here is the body of the text 
 this is me writing something haha
 
+## maybe a heading here? 
+
+## here is another one 
 marginnotes:
   - |
     This is a full footnote with real length to it.[^3]
