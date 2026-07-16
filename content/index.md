@@ -75,39 +75,6 @@ Sources, ideas, and working theory — a running archive spanning performance st
   <a href="/About">About</a>
 </nav>
 
-<table class="index-grid">
-  <tr>
-    <th>&nbsp;</th>
-    <th>Text</th>
-    <th>Image</th>
-    <th>Performance</th>
-  </tr>
-  <tr>
-    <th>Practice</th>
-    <td>—</td>
-    <td>—</td>
-    <td>I.a·R</td>
-  </tr>
-  <tr>
-    <th>Theory</th>
-    <td>II.a·C</td>
-    <td>—</td>
-    <td>—</td>
-  </tr>
-  <tr>
-    <th>Archive</th>
-    <td>III.a·S</td>
-    <td>—</td>
-    <td>I.b·T</td>
-  </tr>
-</table>
-<p class="grid-legend">
-  <span><b>S</b> summary</span>
-  <span><b>C</b> critique</span>
-  <span><b>R</b> creative reflection</span>
-  <span><b>T</b> tangent</span>
-</p>
-
 <p class="section-label">Recently added</p>
 
 </div>

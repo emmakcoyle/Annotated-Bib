@@ -101,9 +101,6 @@ h1:hover, h2:hover, .masthead:hover, .masthead-mini:hover {
 
 /* ============================================================
    FOLD-DOWN NAV
-   Two mechanisms share these classes:
-   - Notes (via annotated-foldnav plugin): checkbox + label
-   - Six static pages (hand-written HTML): <details>/<summary>
    ============================================================ */
 .fold-nav-wrap {
   position: fixed;
@@ -112,7 +109,6 @@ h1:hover, h2:hover, .masthead:hover, .masthead-mini:hover {
   z-index: 100;
 }
 
-/* checkbox mechanism (notes) */
 .fold-nav-toggle {
   position: absolute;
   width: 1px;
@@ -129,7 +125,6 @@ h1:hover, h2:hover, .masthead:hover, .masthead-mini:hover {
   display: flex;
 }
 
-/* the toggle button itself — shared by <label> (notes) and <summary> (static) */
 .fold-nav-button {
   display: flex;
   align-items: center;
@@ -146,9 +141,6 @@ h1:hover, h2:hover, .masthead:hover, .masthead-mini:hover {
 .fold-nav-button::-webkit-details-marker { display: none; }
 .fold-nav-button:hover { color: var(--teal); border-color: var(--teal); }
 
-/* the dropdown panel — hidden by default (checkbox mechanism's base state);
-   details mechanism gets an explicit override below since it has no
-   :checked equivalent to hook into */
 .fold-nav-panel {
   display: none;
   position: absolute;
@@ -388,38 +380,25 @@ nav {
 .bib-name-list li a:hover { color: var(--teal); }
 
 /* ============================================================
-   NOTE LAYOUT: margin rail + reading-width constraint
+   MARGIN RAIL — fixed to the right edge of the viewport,
+   sidestepping the flex/grid/order rules above entirely
    ============================================================ */
 body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-slug="ideas"]):not([data-slug="publications"]):not([data-slug="bibliography"]):not([data-slug="map"]):not([data-slug="about"]) .markdown-preview-view {
   max-width: 640px;
   margin: 0 auto;
 }
+.page { position: relative; }
 .right.sidebar:has(.margin-rail) {
-  width: 230px;
-  padding: 2rem 1.5rem;
-}
-.page > #quartz-body:has(.margin-rail) {
-  grid-template-columns: 0 auto 230px !important;
-}
-
-.note-layout {
-  display: grid;
-  grid-template-columns: 1fr 230px;
-  gap: 3rem;
-  align-items: stretch;
+  position: absolute;
+  top: 8rem;
+  right: 3rem;
+  width: 260px;
+  padding: 0 0.5rem;
 }
 .margin-rail {
   border-left: 1px dashed var(--hairline);
   padding-left: 1.5rem;
-  padding-right: 6px;
-  position: relative;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--hairline) transparent;
 }
-.margin-rail::-webkit-scrollbar { width: 5px; }
-.margin-rail::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 3px; }
-.margin-rail::-webkit-scrollbar-track { background: transparent; }
 
 .margin-note { margin-bottom: 2.6rem; }
 .margin-note .fn-num {
@@ -790,7 +769,6 @@ footer {
    ============================================================ */
 @media (max-width: 900px) {
   .wrap { padding: 2.5rem 1.5rem 3rem; }
-  .note-layout { grid-template-columns: 1fr 180px; gap: 1.8rem; }
   .masthead { font-size: 52px; }
   .masthead-smear { width: 500px; height: 260px; right: -40px; }
   .intro { grid-template-columns: 1fr; }
@@ -817,15 +795,8 @@ footer {
   .intro h1 { font-size: 22px; }
   .dropcap { font-size: 40px; }
 
-  .note-layout { grid-template-columns: 1fr; gap: 0; }
-  .margin-rail {
-    border-left: none;
-    border-top: 1px dashed var(--hairline);
-    padding-left: 0;
-    padding-top: 1.5rem;
-    margin-top: 2rem;
-    max-height: none;
-    overflow-y: visible;
+  .right.sidebar:has(.margin-rail) {
+    display: none;
   }
 
   .index-grid { font-size: 10px; }
@@ -846,6 +817,10 @@ footer {
 
   footer { flex-direction: column; gap: 4px; text-align: center; }
 }
+
+/* ============================================================
+   FOOTNOTES INSIDE MARGIN RAIL
+   ============================================================ */
 .markdown-preview-view .footnotes {
   display: none;
 }
@@ -882,4 +857,26 @@ footer {
 }
 .margin-rail .footnotes a[data-footnote-backref] {
   display: none;
+}
+.grid-box {
+  margin-bottom: 2.6rem;
+}
+.grid-box .index-grid {
+  width: auto;
+  table-layout: fixed;
+}
+.grid-box .index-grid th:first-child {
+  width: 140px;
+}
+.grid-box .index-grid th,
+.grid-box .index-grid td {
+  width: 110px;
+}
+.grid-box .index-grid td a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+.grid-box .index-grid td a:hover {
+  color: var(--rubric);
 }

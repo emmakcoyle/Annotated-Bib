@@ -293,6 +293,17 @@ plugins:
     layout:
       position: right
       priority: 5
+  - source: github:emmakcoyle/annotated-kindmode
+    enabled: true
+    options: {}
+    order: 50
+  - source: github:emmakcoyle/annotated-gridbox
+    enabled: true
+    options: {}
+    order: 50
+    layout:
+      position: afterBody
+      priority: 39
 layout:
   groups:
     toolbar:
