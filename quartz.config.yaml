@@ -12,6 +12,7 @@ configuration:
     - private
     - templates
     - .obsidian
+    - .smart-env
   theme:
     typography:
       header: Fraunces
