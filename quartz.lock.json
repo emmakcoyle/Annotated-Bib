@@ -22,8 +22,8 @@
     "annotated-gridbox": {
       "source": "github:emmakcoyle/annotated-gridbox",
       "resolved": "https://github.com/emmakcoyle/annotated-gridbox.git",
-      "commit": "a7f45186817e166ecf42462c8b2ac5b75f7201b7",
-      "installedAt": "2026-07-16T16:29:50.918Z"
+      "commit": "154c4e63db6c6d4fdd2ec823838b4cf6862507b6",
+      "installedAt": "2026-07-22T16:43:35.077Z"
     },
     "annotated-kindmode": {
       "source": "github:emmakcoyle/annotated-kindmode",
@@ -40,8 +40,8 @@
     "annotated-navarrow": {
       "source": "github:emmakcoyle/annotated-navarrow",
       "resolved": "https://github.com/emmakcoyle/annotated-navarrow.git",
-      "commit": "c4eca1a1fe7b77d7d1833b9e2af1cde2feab05e2",
-      "installedAt": "2026-07-22T05:36:01.771Z"
+      "commit": "80a5109be049fa225ac777e17699cfc94efa20c4",
+      "installedAt": "2026-07-22T17:10:59.724Z"
     },
     "annotated-noteheader": {
       "source": "github:emmakcoyle/annotated-noteheader",

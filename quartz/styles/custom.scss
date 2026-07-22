@@ -7,6 +7,18 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Doodlefont';
+  src: url('./static/Doodlefont-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Maxhand';
+  src: url('./static/Maxhand-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* ============================================================
    COLOR TOKENS
@@ -53,28 +65,106 @@
    needed per element beyond the classes here.
    ============================================================ */
 
-.mark-circle,
-.mark-underline {
+/* .mark-circle now uses the real drawn mark instead of a CSS-built
+   ellipse — wrap any short inline text in <span class="mark-circle">.
+   background-size:100% 100% intentionally stretches the mark to fit
+   whatever width the wrapped text needs. */
+.mark-circle {
   position: relative;
   display: inline-block;
-  white-space: nowrap; /* keep these to short terms/phrases — long
-    wrapped passages should keep using .text-highlight below,
-    since a pseudo-element mark can't follow multi-line wraps */
-}
-
-.mark-circle {
   padding: 0.05em 0.35em;
 }
 .mark-circle::after {
   content: "";
   position: absolute;
-  inset: -0.3em -0.45em;
-  border: 2px solid var(--rubric);
-  border-radius: 52% 48% 50% 50% / 60% 55% 45% 50%;
-  filter: url(#pencil);
-  transform: rotate(-2deg);
-  opacity: 0.85;
+  inset: -0.35em -0.5em;
+  background: url('./static/circle-oval-red.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0.9;
   pointer-events: none;
+}
+
+/* Bolder alternate circle — denser, more tangled pass. Same usage
+   pattern as .mark-circle, for when a heavier emphasis is wanted. */
+.mark-circle-heavy {
+  position: relative;
+  display: inline-block;
+  padding: 0.1em 0.4em;
+}
+.mark-circle-heavy::after {
+  content: "";
+  position: absolute;
+  inset: -0.5em -0.6em;
+  background: url('./static/circle-knot-red.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Strikethrough/cross-out mark — wrap text the same way as
+   .mark-circle. */
+.mark-strike {
+  position: relative;
+  display: inline-block;
+}
+.mark-strike::after {
+  content: "";
+  position: absolute;
+  inset: -0.15em -0.3em;
+  background: url('./static/crossout-red.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0.9;
+  pointer-events: none;
+}
+.mark-circle-hover {
+  position: relative;
+  display: inline-block;
+  padding: 0.05em 0.35em;
+}
+.mark-circle-hover::after {
+  content: "";
+  position: absolute;
+  inset: -0.35em -0.5em;
+  background: url('./static/circle-oval-red.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.mark-circle-hover:hover::after {
+  opacity: 0.9;
+}
+
+.mark-strike-hover {
+  position: relative;
+  display: inline-block;
+}
+.mark-strike-hover::after {
+  content: "";
+  position: absolute;
+  inset: -0.15em -0.3em;
+  background: url('./static/crossout-red.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.mark-strike-hover:hover::after {
+  opacity: 0.9;
+}
+/* Standalone block-level marks, for dropping in as <img class="..." />
+   wherever a swoosh/underline accent is wanted outside running text —
+   same pattern as .pencil-rule on the homepage. Widths are a starting
+   guess; resize per placement. */
+.mark-underline-thin {
+  display: block;
+  width: 160px;
+  height: auto;
+}
+.mark-swoosh-gold {
+  display: block;
+  width: 260px;
+  height: auto;
 }
 
 .mark-underline::after {
@@ -114,6 +204,21 @@
   transform: rotate(-0.8deg);
   z-index: -1;
   pointer-events: none;
+}
+
+/* Doodlefont — decorative accents only. Never for readable body or
+   heading text; use for small doodle glyphs, ligature-style marks
+   (like the ¶ below), or future pop-up annotation doodles. */
+.doodle-font {
+  font-family: 'Doodlefont', cursive;
+}
+
+/* Maxhand — a second handwritten "voice," distinct from MyHand,
+   for pencil-markup annotations (reads like an editor's hand in
+   the margin, not the site's own wordmark hand). Doesn't replace
+   any existing MyHand usage. */
+.markup-hand {
+  font-family: 'Maxhand', 'Kalam', cursive;
 }
 
 /* ============================================================
@@ -398,15 +503,30 @@ body {
   overflow: visible;
 }
 
-.rule-double { width: 100%; height: 12px; margin-bottom: 0.9rem; }
-
-.epigraph {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  font-style: italic;
+.pencil-rule {
+  display: block;
+  width: 420px;
+  height: auto;
+  margin: 0 auto -95px;
+  position: relative;
+  top: -110px;
+}
+.markdown-preview-view .epigraph {
+  font-family: 'Maxhand', 'Kalam', cursive;
+  font-size: 30px;
+  line-height: 1.2;
   color: var(--ink-soft);
   text-align: center;
-  margin: 0 0 2.4rem;
+  margin: 0 0 2rem;
+}
+.markdown-preview-view .intro-note {
+  font-family: 'Maxhand', 'Kalam', cursive;
+  font-size: 25px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--ink-soft);
+  max-width: 560px;
+  margin: 0 auto 2rem;
 }
 
 nav {
@@ -823,9 +943,9 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
 }
 .entry:hover .title { color: var(--rubric); }
 .entry .title::before {
-  content: "¶ ";
+  content: "A ";
   color: var(--rubric);
-  font-family: 'Fraunces', serif;
+  font-family: 'Doodlefont', cursive;
   text-shadow: 1.4px -1px 0 rgba(35, 85, 95, 0.4);
   transition: color 0.2s ease;
 }
@@ -957,8 +1077,9 @@ footer {
   margin: 2.2rem 0 0.9rem;
 }
 .markdown-preview-view h2::before {
-  content: "¶ ";
+  content: "A ";
   color: var(--rubric);
+  font-family: 'Doodlefont', cursive;
 }
 .markdown-preview-view p {
   font-size: 17px;
@@ -1002,7 +1123,7 @@ footer {
   .eyebrow { font-size: 10px; letter-spacing: 0.1em; }
   .masthead { font-size: 38px; }
   .masthead-smear { width: 340px; height: 220px; right: -60px; top: -10px; }
-  .epigraph { font-size: 10px; }
+  .epigraph { font-size: 30px; }
 
   nav {
     flex-wrap: wrap;
@@ -1087,6 +1208,8 @@ footer {
 .grid-box .index-grid {
   width: auto;
   table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 .grid-box .index-grid th:first-child {
   width: 140px;
@@ -1094,6 +1217,17 @@ footer {
 .grid-box .index-grid th,
 .grid-box .index-grid td {
   width: 110px;
+  border: none;
+  position: relative;
+}
+.grid-box .index-grid th::after,
+.grid-box .index-grid td::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--teal);
+  filter: url(#pencil);
+  pointer-events: none;
 }
 .grid-box .index-grid td a {
   color: var(--teal);
@@ -1107,4 +1241,22 @@ footer {
   background-color: var(--highlight);
   padding: 0.05em 0.15em;
   border-radius: 2px;
+}
+/* ============================================================
+   CUSTOM CURSOR — Doodlefont hand glyphs
+   ============================================================ */
+body {
+  cursor: url('./static/cursor-u.png') 16 0, auto;
+}
+a,
+button,
+summary,
+.fold-nav-button,
+[role="button"] {
+  cursor: url('./static/cursor-w.png') 17 0, pointer;
+}
+input,
+textarea,
+.search input {
+  cursor: text;
 }

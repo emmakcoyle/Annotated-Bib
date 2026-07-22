@@ -53,17 +53,12 @@ title: Annotated
 <p class="eyebrow">an interdisciplinary research archive</p>
 <h1 class="masthead"><a href="/">Annotated</a></h1>
 
-<svg class="rule-double" viewBox="0 0 880 12" preserveAspectRatio="none">
-  <path d="M2 6 Q40 2 90 7 T190 5 T290 8 T390 4 T490 7 T590 5 T690 8 T790 4 T878 6"
-        fill="none" stroke="#23555f" stroke-width="1.3" stroke-linecap="round" opacity="0.35" transform="translate(1.6,-1)"/>
-  <path d="M2 6 Q40 2 90 7 T190 5 T290 8 T390 4 T490 7 T590 5 T690 8 T790 4 T878 6"
-        fill="none" stroke="#8c2f22" stroke-width="1.3" stroke-linecap="round" opacity="0.8"/>
-</svg>
+<img src="./static/underline-mark.png" class="pencil-rule" alt="" />
 
 <p class="epigraph">a note on the system this archive is organized by</p>
 
-<p style="text-align:center; color:var(--ink-soft); max-width:500px; margin:0 auto 2rem;">
-Sources, ideas, and working theory — a running archive spanning performance studies, curatorial practice, cultural theory, and creative writing.
+<p class="intro-note">
+<span class="mark-circle-hover">Sources</span>, <span class="mark-circle-hover">ideas</span>, and <span class="mark-circle-hover">working theory</span> — a running archive spanning performance studies, <span class="mark-strike-hover">curatorial practice</span>, cultural theory, and creative writing.
 </p>
 
 <nav>
