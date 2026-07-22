@@ -152,6 +152,86 @@
 .mark-strike-hover:hover::after {
   opacity: 0.9;
 }
+.mark-box-lavender-hover {
+  position: relative;
+  display: inline-block;
+  padding: 0.1em 0.4em;
+}
+.mark-box-lavender-hover::after {
+  content: "";
+  position: absolute;
+  inset: -0.3em -0.4em;
+  background: url('./static/box-outline-lavender.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.mark-box-lavender-hover:hover::after {
+  opacity: 0.9;
+}
+
+.mark-underline-navy-hover {
+  position: relative;
+  display: inline-block;
+}
+.mark-underline-navy-hover::after {
+  content: "";
+  position: absolute;
+  left: -0.1em;
+  right: -0.1em;
+  bottom: -0.3em;
+  height: 0.45em;
+  background: url('./static/underline-thick-navy.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.mark-underline-navy-hover:hover::after {
+  opacity: 0.9;
+}
+
+.mark-underline-sage-hover {
+  position: relative;
+  display: inline-block;
+}
+.mark-underline-sage-hover::after {
+  content: "";
+  position: absolute;
+  left: -0.1em;
+  right: -0.1em;
+  bottom: -0.25em;
+  height: 0.4em;
+  background: url('./static/underline-thin-sage.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.mark-underline-sage-hover:hover::after {
+  opacity: 0.9;
+}
+
+.mark-scribble-magenta-hover {
+  position: relative;
+  display: inline-block;
+  padding: 0.05em 0.3em;
+}
+.mark-scribble-magenta-hover::after {
+  content: "";
+  position: absolute;
+  inset: -0.25em -0.3em;
+  background: url('./static/scribble-hatch-magenta.png') no-repeat center;
+  background-size: 100% 100%;
+  opacity: 0;
+  mix-blend-mode: multiply;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.mark-scribble-magenta-hover:hover::after {
+  opacity: 0.75;
+}
 /* Standalone block-level marks, for dropping in as <img class="..." />
    wherever a swoosh/underline accent is wanted outside running text —
    same pattern as .pencil-rule on the homepage. Widths are a starting
@@ -220,7 +300,57 @@
 .markup-hand {
   font-family: 'Maxhand', 'Kalam', cursive;
 }
+/* Underlines */
+.mark-underline-dash-gold { display: block; width: 160px; height: auto; }
+.mark-underline-thick-navy { display: block; width: 160px; height: auto; }
+.mark-underline-thin-green { display: block; width: 160px; height: auto; }
+.mark-underline-thin-sage { display: block; width: 160px; height: auto; }
+.mark-underline-zigzag-gold { display: block; width: 160px; height: auto; }
 
+/* Box outlines — for wrapping short inline text, e.g. tags/kind labels */
+.mark-box-green { position: relative; display: inline-block; padding: 0.15em 0.5em; }
+.mark-box-green::after {
+  content: ""; position: absolute; inset: -0.3em -0.4em;
+  background: url('./static/box-outline-green.png') no-repeat center;
+  background-size: 100% 100%; pointer-events: none;
+}
+.mark-box-lavender { position: relative; display: inline-block; padding: 0.15em 0.5em; }
+.mark-box-lavender::after {
+  content: ""; position: absolute; inset: -0.3em -0.4em;
+  background: url('./static/box-outline-lavender.png') no-repeat center;
+  background-size: 100% 100%; pointer-events: none;
+}
+
+/* Circle / knot / spiral marks — same usage as .mark-circle */
+.mark-circle-knot-rust { position: relative; display: inline-block; padding: 0.1em 0.4em; }
+.mark-circle-knot-rust::after {
+  content: ""; position: absolute; inset: -0.4em -0.5em;
+  background: url('./static/circle-knot-rust.png') no-repeat center;
+  background-size: 100% 100%; pointer-events: none;
+}
+.mark-loop-spiral-rust { position: relative; display: inline-block; padding: 0.1em 0.4em; }
+.mark-loop-spiral-rust::after {
+  content: ""; position: absolute; inset: -0.4em -0.5em;
+  background: url('./static/loop-spiral-rust.png') no-repeat center;
+  background-size: 100% 100%; pointer-events: none;
+}
+
+/* Scribble/hatch marks — for a denser highlight-style emphasis */
+.mark-scribble-magenta { display: block; width: 180px; height: auto; }
+.mark-scribble-rust { display: block; width: 200px; height: auto; }
+
+/* Vertical squiggles — for margin-rail accents */
+.mark-squiggle-red { display: block; width: 84px; height: auto; }
+.mark-squiggle-red-alt { display: block; width: 85px; height: auto; }
+
+/* Arrows — pointer/callout marks, e.g. margin annotations */
+.mark-arrow-diagonal-red { display: block; width: 180px; height: auto; }
+.mark-arrow-hook-green { display: block; width: 180px; height: auto; }
+.mark-arrow-up-green { display: block; width: 180px; height: auto; }
+.mark-arrow-zigzag-red { display: block; width: 200px; height: auto; }
+
+/* Alternate smear texture, same usage as .masthead-smear */
+.smear-texture-alt { width: 400px; height: auto; }
 /* ============================================================
    QUARTZ CHROME OVERRIDES
    ============================================================ */
@@ -455,14 +585,54 @@ body {
    MAIN HOMEPAGE HEADER
    ============================================================ */
 .eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: 'Maxhand', 'Kalam', cursive;
+  font-size: 30px;
+  letter-spacing: 0.02em;
   color: var(--rubric);
   text-align: center;
   margin: 0 0 1rem;
-  text-shadow: 1.3px -0.9px 0 rgba(35, 85, 95, 0.4);
+  opacity: 0;
+  transition: opacity 0.6s ease 4.5s;
+}
+.masthead-group:has(.masthead:hover) .eyebrow {
+  opacity: 1;
+  transition: opacity 0.25s ease 0s;
+}
+
+.eyebrow-text {
+  position: relative;
+  display: inline-block;
+  padding: 0.4em 1.2em;
+}
+.eyebrow-text::after {
+  content: "";
+  position: absolute;
+  inset: -0.6em -1em;
+  background: url('./static/box-outline-green.png') no-repeat center;
+  background-size: 100% 100%;
+  filter: brightness(0);
+  pointer-events: none;
+}
+
+.masthead-group::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 88px;
+  transform: translateX(-155px);
+  width: 64px;
+  height: 72px;
+  background: url('./static/arrow-up-green.png') no-repeat center;
+  background-size: 100% 100%;
+  filter: brightness(0);
+  opacity: 0;
+  transition: opacity 0.6s ease 4.5s;
+  pointer-events: none;
+  z-index: 2;
+}
+.masthead-group:has(.masthead:hover)::after {
+  opacity: 0.9;
+  transition: opacity 0.25s ease 0s;
 }
 
 .masthead-smear {
@@ -507,9 +677,9 @@ body {
   display: block;
   width: 420px;
   height: auto;
-  margin: 0 auto -95px;
+  margin: 0 auto -145px;
   position: relative;
-  top: -110px;
+  top: -160px;
 }
 .markdown-preview-view .epigraph {
   font-family: 'Maxhand', 'Kalam', cursive;

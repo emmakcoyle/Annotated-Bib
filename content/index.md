@@ -33,32 +33,18 @@ title: Annotated
   </nav>
 </details>
 
-<svg class="masthead-smear" viewBox="0 0 820 400" preserveAspectRatio="none">
-  <g style="mix-blend-mode:multiply">
-  <path d="M816 258 Q750 280 660 250 Q560 260 500 272 Q450 272 380 200 Q310 138 220 155 Q140 168 70 145
-           Q140 190 220 230 Q310 275 400 250 Q470 232 540 280 Q610 328 700 350 Q770 375 816 258 Z"
-        fill="#c99a2e" opacity="0.42" filter="url(#roughen-soft)"/>
-  <path d="M816 258 Q660 240 550 250 Q440 262 370 195 Q300 135 210 150"
-        fill="none" stroke="#c99a2e" stroke-width="34" stroke-linecap="round" opacity="0.32" filter="url(#roughen-soft)"/>
-  <path d="M816 258 Q660 190 470 130 Q360 150 240 155"
-        fill="none" stroke="#c99a2e" stroke-width="40" stroke-linecap="round" opacity="0.34" filter="url(#roughen-soft)"/>
-  <path d="M816 258 Q690 250 570 250 Q460 266 380 220 Q320 188 250 195"
-        fill="none" stroke="#c99a2e" stroke-width="30" stroke-linecap="round" opacity="0.26" filter="url(#roughen-soft)"/>
-  </g>
-  <circle cx="800" cy="240" r="6" fill="#c99a2e" opacity="0.4" filter="url(#roughen-soft)"/>
-  <circle cx="812" cy="285" r="4.5" fill="#c99a2e" opacity="0.35" filter="url(#roughen-soft)"/>
-  <circle cx="790" cy="220" r="4" fill="#c99a2e" opacity="0.32" filter="url(#roughen-soft)"/>
-</svg>
 
-<p class="eyebrow">an interdisciplinary research archive</p>
+<div class="masthead-group">
+<p class="eyebrow"><span class="eyebrow-text">an interdisciplinary research archive</span></p>
 <h1 class="masthead"><a href="/">Annotated</a></h1>
+</div>
 
-<img src="./static/underline-mark.png" class="pencil-rule" alt="" />
+<img src="./static/underline-thick-gold.png" class="pencil-rule" alt="" />
 
-<p class="epigraph">a note on the system this archive is organized by</p>
+<p class="epigraph"><span class="mark-underline-sage-hover" data-edge-x="15" data-edge-y="10">a note on the system this archive is organized by</span></p>
 
 <p class="intro-note">
-<span class="mark-circle-hover">Sources</span>, <span class="mark-circle-hover">ideas</span>, and <span class="mark-circle-hover">working theory</span> — a running archive spanning performance studies, <span class="mark-strike-hover">curatorial practice</span>, cultural theory, and creative writing.
+<span class="mark-circle-hover" data-edge-x="8" data-edge-y="28">Sources</span>, <span class="mark-circle-hover" data-edge-x="18" data-edge-y="48">ideas</span>, and <span class="mark-circle-hover" data-edge-x="85" data-edge-y="8">working theory</span> — a running archive spanning <span class="mark-box-lavender-hover" data-edge-x="5" data-edge-y="68">performance studies</span>, <span class="mark-strike-hover" data-edge-x="95" data-edge-y="30">curatorial practice</span>, <span class="mark-underline-navy-hover" data-edge-x="80" data-edge-y="62">cultural theory</span>, and <span class="mark-scribble-magenta-hover" data-edge-x="90" data-edge-y="85">creative writing</span>.
 </p>
 
 <nav>
