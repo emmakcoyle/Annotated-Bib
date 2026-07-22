@@ -34,14 +34,26 @@
     "annotated-marginrail": {
       "source": "github:emmakcoyle/annotated-marginrail",
       "resolved": "https://github.com/emmakcoyle/annotated-marginrail.git",
-      "commit": "58328ab695a29f5ec514b2d03b6de4b498732617",
-      "installedAt": "2026-07-16T02:15:55.936Z"
+      "commit": "216fb0e7815f255cd14483f1a464cce5cd77c6e8",
+      "installedAt": "2026-07-22T04:33:54.878Z"
+    },
+    "annotated-navarrow": {
+      "source": "github:emmakcoyle/annotated-navarrow",
+      "resolved": "https://github.com/emmakcoyle/annotated-navarrow.git",
+      "commit": "c4eca1a1fe7b77d7d1833b9e2af1cde2feab05e2",
+      "installedAt": "2026-07-22T05:36:01.771Z"
     },
     "annotated-noteheader": {
       "source": "github:emmakcoyle/annotated-noteheader",
       "resolved": "https://github.com/emmakcoyle/annotated-noteheader.git",
       "commit": "06ed450131075972218c887859b48af9ca7f88c3",
       "installedAt": "2026-07-15T21:22:04.711Z"
+    },
+    "annotated-pencilfilter": {
+      "source": "github:emmakcoyle/annotated-pencilfilter",
+      "resolved": "https://github.com/emmakcoyle/annotated-pencilfilter.git",
+      "commit": "50ac310725ea89689569c857e3fc46f99ea9503c",
+      "installedAt": "2026-07-22T04:38:08.542Z"
     },
     "annotated-recent": {
       "source": "github:emmakcoyle/annotated-recent",

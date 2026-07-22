@@ -3,7 +3,7 @@ configuration:
   pageTitle: Annotated
   pageTitleSuffix: ""
   enableSPA: true
-  enablePopovers: true
+  enablePopovers: false
   analytics:
     provider: plausible
   locale: en-US
@@ -315,6 +315,20 @@ plugins:
     layout:
       position: afterBody
       priority: 5
+  - source: github:emmakcoyle/annotated-pencilfilter
+    enabled: true
+    options: {}
+    order: 50
+    layout:
+      position: afterBody
+      priority: 1
+  - source: github:emmakcoyle/annotated-navarrow
+    enabled: true
+    options: {}
+    order: 51
+    layout:
+      position: afterBody
+      priority: 1
 layout:
   groups:
     toolbar:

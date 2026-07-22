@@ -24,6 +24,99 @@
 }
 
 /* ============================================================
+   PENCIL MARK SYSTEM
+   ------------------------------------------------------------
+   IMPORTANT — this file can style things with `filter: url(#pencil)`,
+   but it cannot *create* that filter. SVG filter primitives
+   (feTurbulence etc.) only work when defined inside an actual
+   <svg><defs> element in the page HTML. That block needs to be
+   added once, site-wide, via a small Quartz component (or an
+   inline partial in the base layout) — something like:
+
+     <svg width="0" height="0" style="position:absolute">
+       <filter id="pencil" x="-40%" y="-40%" width="180%" height="180%">
+         <feTurbulence type="fractalNoise" baseFrequency="0.4 0.9"
+           numOctaves="2" seed="3" result="grain"/>
+         <feColorMatrix in="grain" type="matrix"
+           values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.6 -0.35"
+           result="grainA"/>
+         <feComposite in="SourceGraphic" in2="grainA" operator="in" result="tex1"/>
+         <feTurbulence type="fractalNoise" baseFrequency="0.02"
+           numOctaves="2" seed="9" result="wob"/>
+         <feDisplacementMap in="tex1" in2="wob" scale="2.5"/>
+       </filter>
+     </svg>
+
+   Once #pencil exists anywhere in the DOM, every rule below that
+   references filter: url(#pencil) will work on ordinary HTML
+   elements (border boxes, underlines, rules) — no extra markup
+   needed per element beyond the classes here.
+   ============================================================ */
+
+.mark-circle,
+.mark-underline {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap; /* keep these to short terms/phrases — long
+    wrapped passages should keep using .text-highlight below,
+    since a pseudo-element mark can't follow multi-line wraps */
+}
+
+.mark-circle {
+  padding: 0.05em 0.35em;
+}
+.mark-circle::after {
+  content: "";
+  position: absolute;
+  inset: -0.3em -0.45em;
+  border: 2px solid var(--rubric);
+  border-radius: 52% 48% 50% 50% / 60% 55% 45% 50%;
+  filter: url(#pencil);
+  transform: rotate(-2deg);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.mark-underline::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.18em;
+  border-bottom: 2.5px solid var(--teal);
+  filter: url(#pencil);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* hand-drawn box, replaces a clean CSS border wherever a "tag" or
+   "kind" label needs the sketched-box treatment */
+.mark-box {
+  border: 1.6px solid var(--teal);
+  filter: url(#pencil);
+  background: none;
+}
+
+/* layered marker-style highlight, for SHORT titles/headings only
+   (safe because it's a single line — see note on .mark-circle) */
+.mark-highlight {
+  position: relative;
+  z-index: 1;
+}
+.mark-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 8% -6% 2%;
+  background: var(--pastel-yellow);
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  filter: url(#pencil);
+  transform: rotate(-0.8deg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ============================================================
    QUARTZ CHROME OVERRIDES
    ============================================================ */
 .page-header { display: none; }
@@ -40,6 +133,25 @@
 
 .graph { display: none; }
 body[data-slug="map"] .graph { display: block; }
+
+/* Graph View heading currently renders unstyled (plain black serif) —
+   Quartz's built-in graph component doesn't give it a class of its
+   own, so this targets the heading tag directly. If it doesn't pick
+   up correctly, inspect the live DOM for the actual element Quartz
+   renders and swap the selector below accordingly. */
+.graph h1,
+.graph h2,
+.graph h3 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+  margin: 0 0 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed var(--hairline);
+}
 
 .page > #quartz-body {
   grid-template-columns: 0 auto 0 !important;
@@ -168,26 +280,41 @@ details.fold-nav-wrap[open] .fold-nav-panel {
 .fold-nav-panel a:hover { color: var(--teal); background: var(--card); }
 
 /* ============================================================
-   TAG BROWSE PILLS
+   TAG BROWSE PILLS — now a hand-drawn box instead of a clean
+   rounded pill, using the pencil filter + slight per-pill rotation
    ============================================================ */
 .tag-browse { margin-bottom: 2rem; }
 .tag-browse-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 .tag-pill {
+  position: relative;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
-  border: 1px solid var(--hairline);
-  border-radius: 20px;
+  border: none;
   padding: 0.4rem 0.9rem;
+  display: inline-block;
 }
-.tag-pill:hover { background: var(--card); color: var(--teal); }
+.tag-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1.4px solid var(--teal);
+  border-radius: 50% / 50%;
+  filter: url(#pencil);
+  pointer-events: none;
+}
+.tag-pill:nth-of-type(3n) { transform: rotate(-2deg); }
+.tag-pill:nth-of-type(3n+1) { transform: rotate(1.5deg); }
+.tag-pill:nth-of-type(3n+2) { transform: rotate(-0.8deg); }
+.tag-pill:hover { color: var(--rubric); }
+.tag-pill:hover::before { border-color: var(--rubric); }
 
 /* ============================================================
    BASE
@@ -257,6 +384,20 @@ body {
 }
 .wrap .masthead a { color: inherit; text-decoration: none; background: none; }
 
+/* Nav hover-arrow: this box is the drop zone a small JS component
+   will draw the pencil-arrow SVG path into on nav :hover / :mouseleave.
+   The layout (masthead → rule → nav) already puts everything in the
+   right relative position for it; the script just needs to find
+   .masthead and each nav a, same pattern as annotated-marginrail's
+   afterDOMLoaded script. Not written here since it's JS, not CSS. */
+.header-arrow-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
 .rule-double { width: 100%; height: 12px; margin-bottom: 0.9rem; }
 
 .epigraph {
@@ -276,6 +417,7 @@ nav {
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
   margin-bottom: 3rem;
+  position: relative;
 }
 .wrap nav a {
   font-family: 'IBM Plex Mono', monospace;
@@ -353,15 +495,31 @@ nav {
 .crumb-trail span { margin: 0 0.5rem; opacity: 0.5; }
 
 /* ============================================================
-   BIBLIOGRAPHY NAME LIST
+   BIBLIOGRAPHY NAME LIST — letter group now a hand-drawn
+   circled letter instead of plain colored text
    ============================================================ */
 .bib-letter-group { margin-bottom: 1.6rem; }
 .bib-letter {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   font-family: 'Fraunces', serif;
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 19px;
   color: var(--rubric);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.8rem;
+}
+.bib-letter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1.8px solid var(--rubric);
+  border-radius: 48% 52% 50% 50% / 55% 50% 50% 45%;
+  filter: url(#pencil);
+  pointer-events: none;
 }
 .bib-name-list {
   list-style: none;
@@ -632,27 +790,30 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
   gap: 0.6rem;
 }
 .section-label .doodle { flex-shrink: 0; }
-.section-label::after { content: ""; flex: 1; height: 1px; background: var(--hairline); }
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 3px;
+  background: var(--hairline);
+  filter: url(#pencil);
+  opacity: 0.8;
+}
 
+/* I.a coordinate tag dropped from every entry — the grid concept
+   isn't populated meaningfully right now. Column removed rather
+   than just hidden so the layout doesn't leave a gap. */
 .entry {
   display: grid;
-  grid-template-columns: 40px 1fr auto;
+  grid-template-columns: 1fr auto;
   gap: 1.2rem;
   align-items: baseline;
   padding: 1.05rem 0;
   border-bottom: 1px solid var(--hairline);
   transition: transform 0.2s ease;
 }
+.entry .num { display: none; }
 .entry:hover { transform: translateX(3px); }
 .entry:first-of-type { border-top: 1px solid var(--hairline); }
-.entry .num {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  color: var(--rubric);
-  text-shadow: 1.2px -0.8px 0 rgba(35, 85, 95, 0.4);
-  transition: color 0.2s ease;
-}
-.entry:hover .num { color: var(--teal); }
 .entry .title {
   font-family: 'Fraunces', serif;
   font-weight: 500;
@@ -867,7 +1028,6 @@ footer {
   .grid-legend span { margin-right: 0.7rem; display: inline-block; margin-bottom: 4px; }
 
   .entry { grid-template-columns: 1fr; gap: 0.2rem; }
-  .entry .num { order: -1; }
 
   .note-title { font-size: 26px; }
   .note-meta { grid-template-columns: 80px 1fr; font-size: 11px; }
@@ -922,6 +1082,7 @@ footer {
 }
 .grid-box {
   margin-bottom: 2.6rem;
+  padding: 1.4rem 1.4rem 1rem;
 }
 .grid-box .index-grid {
   width: auto;
@@ -941,4 +1102,9 @@ footer {
 }
 .grid-box .index-grid td a:hover {
   color: var(--rubric);
+}
+.text-highlight {
+  background-color: var(--highlight);
+  padding: 0.05em 0.15em;
+  border-radius: 2px;
 }
