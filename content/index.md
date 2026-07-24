@@ -14,26 +14,6 @@ title: Annotated
 
 <div class="wrap">
 
-<details class="fold-nav-wrap">
-  <summary class="fold-nav-button" aria-label="Menu">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-      <line x1="4" y1="7" x2="20" y2="7"></line>
-      <line x1="4" y1="12" x2="20" y2="12"></line>
-      <line x1="4" y1="17" x2="20" y2="17"></line>
-    </svg>
-  </summary>
-  <nav class="fold-nav-panel">
-    <a href="./">Home</a>
-    <a href="./sources">Sources</a>
-    <a href="./ideas">Ideas</a>
-    <a href="./publications">Publications</a>
-    <a href="./bibliography">Bibliography</a>
-    <a href="./map">Map</a>
-    <a href="./about">About</a>
-  </nav>
-</details>
-
-
 <div class="masthead-group">
 <p class="eyebrow"><span class="eyebrow-text">an interdisciplinary research archive</span></p>
 <h1 class="masthead"><a href="/">Annotated</a></h1>
@@ -44,7 +24,7 @@ title: Annotated
 <p class="epigraph"><span class="mark-underline-sage-hover" data-edge-x="15" data-edge-y="10">a note on the system this archive is organized by</span></p>
 
 <p class="intro-note">
-<span class="mark-circle-hover" data-edge-x="8" data-edge-y="28">Sources</span>, <span class="mark-circle-hover" data-edge-x="18" data-edge-y="48">ideas</span>, and <span class="mark-circle-hover" data-edge-x="85" data-edge-y="8">working theory</span> — a running archive spanning <span class="mark-box-lavender-hover" data-edge-x="5" data-edge-y="68">performance studies</span>, <span class="mark-strike-hover" data-edge-x="95" data-edge-y="30">curatorial practice</span>, <span class="mark-underline-navy-hover" data-edge-x="80" data-edge-y="62">cultural theory</span>, and <span class="mark-scribble-magenta-hover" data-edge-x="90" data-edge-y="85">creative writing</span>.
+<span class="mark-circle-hover" data-edge-x="8" data-edge-y="28">Sources</span>, <span class="mark-circle-hover" data-edge-x="18" data-edge-y="48">ideas</span>, and <span class="mark-circle-hover" data-edge-x="85" data-edge-y="8">working theory</span> , a running archive spanning <span class="mark-box-lavender-hover" data-edge-x="5" data-edge-y="68">performance studies</span>, <span class="mark-strike-hover" data-edge-x="95" data-edge-y="30">curatorial practice</span>, <span class="mark-underline-navy-hover" data-edge-x="80" data-edge-y="62">cultural theory</span>, and <span class="mark-scribble-magenta-hover" data-edge-x="90" data-edge-y="85">creative writing</span>.
 </p>
 
 <nav>

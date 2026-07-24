@@ -69,9 +69,14 @@ function getComponentResources(ctx: BuildCtx): ComponentResources {
   }
 }
 
-async function joinScripts(scripts: string[]): Promise<string> {
+async function joinScripts(scripts: string[], debugLabel?: string): Promise<string> {
   // wrap with iife to prevent scope collision
   const script = scripts.map((script) => `(function () {${script}})();`).join("\n")
+
+  if (debugLabel) {
+    const fs = await import("fs")
+    fs.writeFileSync(`/tmp/quartz-debug-${debugLabel}.js`, script)
+  }
 
   // minify with esbuild
   const res = await transpile(script, {
@@ -346,12 +351,12 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
       )
       const stylesheet = `@layer quartz-base {\n${quartzBase}\n}\n${customStyles}`
 
-      const prescript = await joinScripts(componentResources.beforeDOMLoaded)
+      const prescript = await joinScripts(componentResources.beforeDOMLoaded, "prescript")
 
       let postscript: string
       if (!useHashing) {
         // Serve mode: monolithic IIFE bundle for fast rebuilds
-        postscript = await joinScripts(componentResources.afterDOMLoaded)
+        postscript = await joinScripts(componentResources.afterDOMLoaded, "postscript")
       } else {
         // Production: emit each afterDOMLoaded script as an individual cached file,
         // then generate an orchestrator that imports them with correct ordering.
