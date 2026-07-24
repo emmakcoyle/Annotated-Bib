@@ -759,7 +759,16 @@ body {
   position: relative;
   z-index: 1;
 }
-.wrap .masthead a { color: inherit; text-decoration: none; background: none; }
+/* !important here because the later "internal-link" color/underline
+   override (see LINKS, FOOTNOTE MARKERS section below) ties this
+   rule on specificity — without it, the masthead wordmark link would
+   inherit the generic link color/dotted-underline treatment instead
+   of reading as plain title text. */
+.wrap .masthead a {
+  color: inherit !important;
+  text-decoration: none !important;
+  background: none !important;
+}
 
 /* Nav hover-arrow: this box is the drop zone a small JS component
    will draw the pencil-arrow SVG path into on nav :hover / :mouseleave.
@@ -860,18 +869,22 @@ nav {
   letter-spacing: 0.02em;
   margin-bottom: 0.5rem;
 }
+/* color/text-decoration/background are !important for the same
+   reason as .wrap .masthead a above — this is also an <a class=
+   "masthead-mini internal-link">, so the generic internal-link
+   color/underline rule ties it on specificity without this. */
 .page-header-mini .masthead-mini {
   font-family: 'MyHand', 'Fraunces', serif !important;
   font-weight: normal;
   font-size: 26px;
-  color: var(--ink);
-  text-decoration: none;
-  background: none;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+  background: none !important;
   display: inline-block;
   margin-bottom: 0.5rem;
 }
 .page-header-mini .masthead-mini a { background: none; }
-.page-header-mini .masthead-mini:hover { color: var(--rubric); }
+.page-header-mini .masthead-mini:hover { color: var(--rubric) !important; }
 /* This top margin is the only thing separating the crumb-trail from
    the gold underline mark above it — but the mark is
    position:absolute (see .pencil-rule-mini below), so it's pulled

@@ -4,6 +4,21 @@ on:
   push:
     branches:
       - v5
+  schedule:
+    # Rebuilds every 8 hours so new notes go live on their own,
+    # without a manual push. This only picks up new/changed
+    # *content* files (new .md notes) — plugin code changes still
+    # need `npx quartz plugin install --latest` run locally, with
+    # the updated quartz.lock.json committed and pushed, since the
+    # plugin cache below is keyed to that lockfile's hash and the
+    # `quartz plugin install` step (no --latest flag) always
+    # installs exactly what's pinned there, not whatever is newest
+    # on GitHub.
+    - cron: "0 */8 * * *"
+  workflow_dispatch:
+    # Lets you trigger a rebuild manually from the Actions tab in
+    # GitHub, useful for testing without waiting for the schedule
+    # or making a dummy commit.
 
 permissions:
   contents: read
