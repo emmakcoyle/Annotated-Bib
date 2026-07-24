@@ -1178,6 +1178,19 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
   right: 3rem;
   width: 260px;
   padding: 0 0.5rem;
+  /* A base rule shipped by the quartz-themes plugin (selector
+     includes #quartz-body, so it out-specifies the class-only
+     selectors here) sets height:100vh on both sidebars as part of
+     its own sticky-column layout. That rule was silently capping
+     the actual rendered height to one viewport regardless of the
+     max-height set below or by MarginRail.tsx's JS height-sync --
+     for height/max-height together, the browser uses whichever is
+     smaller, so height:100vh always won even when max-height was
+     correctly calculated much larger. !important is required since
+     that rule has higher specificity (an ID selector) than this one
+     and doesn't use !important itself, so this only needs to beat a
+     non-important declaration. */
+  height: auto !important;
 }
 /* Bounded height + its own scrollbar instead of letting the sidebar
    grow without limit — a 2000-word footnote would otherwise make
@@ -1193,6 +1206,21 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
 .margin-rail {
   border-left: 1px dashed var(--hairline);
   padding-left: 1.5rem;
+  /* Confirmed via DevTools on the live element: .margin-rail (a flex
+     item inside .right.sidebar, which is display:flex per the
+     quartz-themes base rule) was independently reporting its own
+     resolved max-height (e.g. 384px) with no matching CSS rule
+     anywhere in any stylesheet -- likely a browser layout quirk for
+     auto-sized flex children inside an absolutely-positioned flex
+     container, not an authored rule. Because its own overflow-y is
+     visible, content past that phantom cap doesn't clip itself, but
+     .right.sidebar's own auto height (correctly set above) was
+     sizing to match THIS child's smaller box instead of the child's
+     real (much taller) content, so .right.sidebar's overflow:auto
+     then clipped everything past that borrowed number. Forcing this
+     explicitly bypasses whatever produced the phantom value. */
+  height: auto !important;
+  max-height: none !important;
 }
 
 /* ============================================================
@@ -1210,11 +1238,21 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
      the page. */
   max-height: calc(100vh - 15rem - 2rem);
   overflow-y: auto;
+  /* Same quartz-themes height:100vh conflict as .right.sidebar above
+     (that base rule targets both sidebars via one shared selector) —
+     see the comment there for the full explanation. */
+  height: auto !important;
 }
 .toc {
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px dashed var(--hairline);
+  /* Same phantom flex-item max-height issue as .margin-rail above --
+     .toc is the equivalent auto-sized flex child inside .left.sidebar
+     (also display:flex per the same quartz-themes base rule). See the
+     .margin-rail comment for the full explanation. */
+  height: auto !important;
+  max-height: none !important;
 }
 .toc .toc-header {
   display: flex;
