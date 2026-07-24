@@ -13,4 +13,3 @@ date_published:
 pinned: false
 marginnotes:
 ---
-![[Screen Recording 2026-06-24 at 22.59.25.mov]]

@@ -10,8 +10,8 @@
     "annotated-entrylist": {
       "source": "github:emmakcoyle/annotated-entrylist",
       "resolved": "https://github.com/emmakcoyle/annotated-entrylist.git",
-      "commit": "53325635947287a65b04a3127b53c4b7a74475df",
-      "installedAt": "2026-07-24T02:48:17.162Z"
+      "commit": "eb7d3f8878802b89aa13b49425f072681c3c04ac",
+      "installedAt": "2026-07-24T04:50:45.347Z"
     },
     "annotated-foldnav": {
       "source": "github:emmakcoyle/annotated-foldnav",
