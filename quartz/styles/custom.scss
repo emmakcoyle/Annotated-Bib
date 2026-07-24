@@ -425,6 +425,16 @@ body[data-slug="map"] .graph { display: block; }
   border-bottom: 1px dashed var(--hairline);
 }
 
+/* Reverted back to this — the grid-based rewrite that was here
+   caused real overlap/collision between the sidebars and the main
+   content at normal desktop widths (Quartz's own core CSS likely
+   already places these via grid-area on #quartz-body, and the
+   explicit grid-column/grid-row here conflicted with that in ways
+   that weren't predictable from source inspection alone). Back to
+   flex + absolutely-positioned overlays, confirmed working. The
+   "long footnote" problem is handled separately below via a bounded
+   height + internal scroll on the sidebar itself instead of trying
+   to make the whole page grow to fit it. */
 .page > #quartz-body {
   grid-template-columns: 0 auto 0 !important;
   display: flex;
@@ -486,10 +496,24 @@ h1:hover, h2:hover, .masthead:hover, .masthead-mini:hover {
 /* ============================================================
    FOLD-DOWN NAV
    ============================================================ */
+/* The page's bordered/centered content frame (.wrap, and
+   .page-header:has(.page-header-mini) on note pages which have no
+   .wrap) both max out at 1400px width. A flat `right: 1.2rem` pins
+   this button to the raw browser viewport edge instead — harmless
+   below ~1400px+padding where the frame fills the viewport anyway,
+   but on wider windows the frame stops growing and centers with
+   empty space on each side, so the viewport-pinned button drifts
+   outside the frame's own right border (confirmed on both a note
+   page and a static page — this was never page-type-specific). The
+   calc() tracks the frame's actual right edge once the viewport
+   exceeds 1400px; max() falls back to the flat 1.2rem below that,
+   where the calc term goes negative. Still position:fixed, so it
+   stays visible while scrolling — only the horizontal anchor point
+   changed. */
 .fold-nav-wrap {
   position: fixed;
   top: 1.2rem;
-  right: 1.2rem;
+  right: max(1.2rem, calc((100vw - 1400px) / 2 + 1.2rem));
   z-index: 100;
 }
 
@@ -1155,6 +1179,17 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
   width: 260px;
   padding: 0 0.5rem;
 }
+/* Bounded height + its own scrollbar instead of letting the sidebar
+   grow without limit — a 2000-word footnote would otherwise make
+   this column run far past the bottom of the (much shorter) main
+   note, since position:absolute takes it out of the flow the page's
+   own height is measured from. max-height caps it to whatever room
+   is left below top:15rem in the current viewport; overflow-y:auto
+   only shows a scrollbar when the content actually needs it. */
+.right.sidebar:has(.margin-rail) {
+  max-height: calc(100vh - 15rem - 2rem);
+  overflow-y: auto;
+}
 .margin-rail {
   border-left: 1px dashed var(--hairline);
   padding-left: 1.5rem;
@@ -1170,6 +1205,11 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
   left: 3rem;
   width: 260px;
   padding: 0 0.5rem;
+  /* Same reasoning as the margin-rail's max-height/overflow-y above —
+     a very long ToC gets its own scrollbar instead of running past
+     the page. */
+  max-height: calc(100vh - 15rem - 2rem);
+  overflow-y: auto;
 }
 .toc {
   margin-bottom: 2rem;
@@ -1213,8 +1253,63 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
   line-height: 1.6;
   margin-bottom: 0.3rem;
 }
-.toc .toc-content li a { color: var(--ink-soft); text-decoration: none; }
+.toc .toc-content li a { color: var(--ink); text-decoration: none; }
 .toc .toc-content li a:hover { color: var(--rubric); }
+
+/* The table-of-contents plugin ships its own default CSS (a separate
+   stylesheet, not this file) that dims every entry to opacity:0.35
+   until its heading scrolls into view (then only 0.75, never fully
+   opaque), and caps ul.toc-content.overflow at max-height:
+   calc(100% - 2rem) with overflow-y:hidden on .toc itself — clipping
+   entries that don't fit and adding a trailing <li class="overflow-
+   end"> as a fade cue. That plugin CSS lives inside `@layer
+   quartz-base`, wrapped separately from this file's own compiled
+   output; unlayered rules should already win automatically over
+   layered ones regardless of specificity or file order, but
+   !important is added here too as a belt-and-suspenders guarantee
+   since this needs to hold no matter what. .left.sidebar is
+   position:absolute with its own max-height/overflow-y (see above),
+   so .toc's own max-height:calc(100% - 2rem) would otherwise resolve
+   against that real height instead of being inert.
+
+   NOTE: the opacity override above was correctly winning all along —
+   confirmed via DevTools (opacity:1 !important active, plugin's
+   opacity:.35 rule struck through). What actually looked like
+   "fading" was a separate, unrelated bug: the .toc .toc-content li a
+   rule right above this comment was hardcoded to color: var(--ink-
+   soft) (a muted gray, #4a4f45) instead of var(--ink), so every ToC
+   entry rendered in a lighter gray than the rest of the page's text
+   — nothing to do with the plugin's opacity/in-view logic at all.
+   Fixed by switching that rule to var(--ink). */
+.toc {
+  overflow-y: visible !important;
+}
+.toc .toc-content.overflow {
+  max-height: none !important;
+  overflow: visible !important;
+}
+.toc .toc-content li a,
+.toc .toc-content li a.in-view {
+  opacity: 1 !important;
+}
+.toc .overflow-end {
+  display: none !important;
+}
+/* The opacity/max-height/overflow overrides above were all correctly
+   winning, but the visible fading turned out to be a completely
+   separate mechanism: the plugin applies a bottom-edge CSS mask
+   (mask-image: linear-gradient(...)) to .toc-content whenever it
+   adds the .gradient-active class — confirmed via computed-style
+   inspection (mask-image: linear-gradient(rgb(0,0,0) calc(100% -
+   50px), rgba(0,0,0,0) 100%)), and it was applying even when the
+   list wasn't actually overflowing (scrollHeight === clientHeight).
+   mask-image is an independent property from opacity — no opacity
+   override could ever touch it. Neutralizing it directly here. */
+.toc .toc-content {
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
 .toc .toc-content li.depth-1 { padding-left: 0; }
 .toc .toc-content li.depth-2 { padding-left: 0.9rem; }
 .toc .toc-content li.depth-3 { padding-left: 1.8rem; }
@@ -1618,6 +1713,31 @@ footer {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* .left.sidebar:has(.toc) and .right.sidebar:has(.margin-rail) are
+   both position:absolute at a fixed left:3rem/right:3rem — but the
+   note body they sit beside (.markdown-preview-view, max-width:640px)
+   centers within the FULL viewport, not within a fixed 1400px frame
+   (note pages have no .wrap for it to center against). Below
+   ~1256px viewport width the centered 640px column's own edge
+   creeps in past the sidebar's inner edge, causing an overlap.
+
+   Fix: keep both sidebars in their normal side position at every
+   width down to mobile and instead shrink JUST the sidebar as the
+   window narrows, down to a 90px floor — the reading column itself
+   is untouched. Text wraps naturally inside the narrower sidebar (no
+   white-space:nowrap is set anywhere on these), so nothing gets cut
+   off, just narrower and taller. */
+@media (max-width: 1256px) and (min-width: 641px) {
+  .left.sidebar:has(.toc),
+  .right.sidebar:has(.margin-rail) {
+    width: clamp(90px, calc((100vw - 640px) / 2 - 1rem), 260px);
+    padding: 0 0.4rem;
+    overflow-wrap: break-word;
+  }
+  .left.sidebar:has(.toc) { left: 1rem; }
+  .right.sidebar:has(.margin-rail) { right: 1rem; }
+}
+
 @media (max-width: 900px) {
   .wrap { padding: 2.5rem 1.5rem 3rem; }
   .masthead { font-size: 52px; }
@@ -1644,11 +1764,33 @@ footer {
   .intro h1 { font-size: 22px; }
   .dropcap { font-size: 40px; }
 
+  /* True mobile only: drop both sidebars out of their side position
+     entirely and let them fall into normal document flow, where the
+     flex-column order already set up above (.center order:1, .left.
+     sidebar order:2, .right.sidebar order:3, footer order:4) stacks
+     them full-width below the note body instead of squeezed beside
+     it — body text, then Table of Contents, then margin-rail/
+     footnotes, then footer. */
+  .left.sidebar:has(.toc),
   .right.sidebar:has(.margin-rail) {
-    display: none;
+    position: static;
+    width: auto;
+    max-width: 640px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 1.1rem 0;
+    top: auto;
+    left: auto;
+    right: auto;
+    max-height: none;
+    overflow-y: visible;
+    border-top: 1px dashed var(--hairline);
   }
-  .left.sidebar:has(.toc) {
-    display: none;
+  /* Same reasoning as the border-top added above — a left-border
+     "rail" divider reads fine beside the note, but looks like a
+     stray vertical stroke once stacked full-width beneath it. */
+  .margin-rail {
+    border-left: none;
+    padding-left: 0;
   }
 
   .index-grid { font-size: 10px; }

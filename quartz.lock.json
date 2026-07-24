@@ -34,8 +34,8 @@
     "annotated-marginrail": {
       "source": "github:emmakcoyle/annotated-marginrail",
       "resolved": "https://github.com/emmakcoyle/annotated-marginrail.git",
-      "commit": "216fb0e7815f255cd14483f1a464cce5cd77c6e8",
-      "installedAt": "2026-07-22T04:33:54.878Z"
+      "commit": "ba366c6b2c163404968e3ab9bd80b11ef9e92ab0",
+      "installedAt": "2026-07-24T21:34:41.303Z"
     },
     "annotated-navarrow": {
       "source": "github:emmakcoyle/annotated-navarrow",
@@ -260,9 +260,9 @@
         "subdir": "plugin"
       },
       "resolved": "https://github.com/saberzero1/quartz-themes.git",
-      "commit": "aa6691d6e703d3bff5a7268d378b3cf4b641ac3b",
+      "commit": "fc71d60a9694e686a537d2739967afd972cf435d",
       "subdir": "plugin",
-      "installedAt": "2026-07-24T16:45:02.627Z"
+      "installedAt": "2026-07-24T21:29:46.892Z"
     },
     "reader-mode": {
       "source": "github:quartz-community/reader-mode",
