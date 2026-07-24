@@ -14,7 +14,7 @@ tags:
   - aesthetics
   - photography
 authors:
-  - An-My Lê
+  - An-My Le
 date_published:
 pinned:
 marginnotes:

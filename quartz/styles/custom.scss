@@ -1256,14 +1256,34 @@ body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-sl
 
 /* ============================================================
    LINKS, FOOTNOTE MARKERS
-   ============================================================ */
-.wikilink {
+   ------------------------------------------------------------
+   The obsidian-flavored-markdown plugin renders internal wikilinks
+   as <a class="internal internal-link"> (plain) or
+   <a class="internal internal-link alias"> (piped [[target|display]]
+   form) — never as <a class="wikilink">. The .wikilink rule below
+   used to target a class that never actually appeared in the
+   rendered HTML, so it did nothing; meanwhile Quartz's own stock
+   link styling reads the same --highlight custom property this
+   file repurposes for .text-highlight/marks, which is why internal
+   links were showing up with a solid gold highlight background.
+   This now targets the classes Quartz actually emits, clears that
+   background/padding, and gives links their own color instead — so
+   they read as "a link," not a highlighted term. .text-highlight
+   and .fn-marker are untouched, so real ==highlighted== text and
+   footnote numbers keep working exactly as before. */
+.wikilink,
+.markdown-preview-view a.internal-link {
+  background: none;
+  padding: 0;
   color: var(--teal);
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 2px;
 }
-.wikilink:hover { color: var(--rubric); }
+.wikilink:hover,
+.markdown-preview-view a.internal-link:hover {
+  color: var(--rubric);
+}
 
 .fn-marker {
   font-family: 'IBM Plex Mono', monospace;
