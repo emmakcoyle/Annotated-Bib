@@ -391,6 +391,7 @@
   display: none;
 }
 
+
 /* The stock article-title plugin is no longer used — NoteHeader.tsx
    now renders the note's title itself (see .note-page-title below),
    so it lives inside the same 560px-wide, left-aligned header block
@@ -871,7 +872,18 @@ nav {
 }
 .page-header-mini .masthead-mini a { background: none; }
 .page-header-mini .masthead-mini:hover { color: var(--rubric); }
-.page-header-mini .crumb-trail { margin: 0.6rem 0 0; }
+/* This top margin is the only thing separating the crumb-trail from
+   the gold underline mark above it — but the mark is
+   position:absolute (see .pencil-rule-mini below), so it's pulled
+   out of normal document flow and doesn't factor into automatic
+   spacing between .masthead-group-mini and this element at all. On
+   note pages that never mattered (the title sits between them,
+   giving huge clearance regardless); on static pages the crumb-trail
+   is the very next thing after the mark, so this margin is the ONLY
+   thing keeping them apart, and 0.6rem wasn't enough once the
+   crumb-trail shrank down to its correct small size. Bumped up to
+   clear it. */
+.page-header-mini .crumb-trail { margin: 1.7rem 0 0; }
 
 /* .masthead-group-mini wraps just "Annotated" (the eyebrow is pulled
    out of flow below, and the gold underline now lives inside this
@@ -922,6 +934,18 @@ nav {
   width: 100%;
   height: auto;
   pointer-events: none;
+}
+
+/* Static pages specifically (the ones with a .crumb-trail sibling
+   right after the masthead group — kind/mode/tag pages share this
+   same .wrap > .page-header-mini structure but never have a
+   .crumb-trail, and note pages use a different structure entirely,
+   so this :has() scoping only touches the pages actually showing
+   the overlap): pull the mark up higher, independent of the
+   crumb-trail's own margin, since that margin alone wasn't enough
+   to read as real separation. */
+.wrap > .page-header-mini:has(.crumb-trail) .pencil-rule-mini {
+  top: -1.6rem;
 }
 
 /* .eyebrow is deliberately excluded here — it needs to stay
@@ -991,7 +1015,19 @@ nav {
   opacity: 0.8;
 }
 
-.crumb-trail {
+/* Scoped under .page-header-mini (2 classes) rather than left bare
+   (1 class) — on note pages this block renders outside
+   .markdown-preview-view entirely, so the bare version worked fine
+   there. On static pages the whole header lives INSIDE the markdown
+   body (it's written directly into the .md file), so it's nested in
+   .markdown-preview-view, and .markdown-preview-view p / a (which
+   set font-size:17px and a teal dotted underline for normal body
+   text/links) have equal-or-higher specificity than a bare
+   .crumb-trail / .crumb-trail a and were winning outright — that's
+   why "Home" rendered full-size with a teal underline instead of
+   the small gray mono style. The extra ancestor class guarantees
+   this wins regardless of file order or where it's nested. */
+.page-header-mini .crumb-trail {
   text-align: left;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
@@ -1000,9 +1036,9 @@ nav {
   color: var(--ink-soft);
   margin-bottom: 1.4rem;
 }
-.crumb-trail a { color: var(--ink-soft); text-decoration: none; }
-.crumb-trail a:hover { color: var(--teal); }
-.crumb-trail span { margin: 0 0.5rem; opacity: 0.5; }
+.page-header-mini .crumb-trail a { color: var(--ink-soft); text-decoration: none; }
+.page-header-mini .crumb-trail a:hover { color: var(--teal); }
+.page-header-mini .crumb-trail span { margin: 0 0.5rem; opacity: 0.5; }
 .title-underline {
   position: absolute;
   left: -3%;
