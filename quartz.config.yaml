@@ -325,6 +325,10 @@ plugins:
     layout:
       position: afterBody
       priority: 1
+  - source: github:emmakcoyle/author-page
+    enabled: true
+    options: {}
+    order: 50
 layout:
   groups:
     toolbar:
@@ -343,6 +347,11 @@ layout:
       positions:
         right: []
     tag:
+      exclude:
+        - reader-mode
+      positions:
+        right: []
+    author:
       exclude:
         - reader-mode
       positions:

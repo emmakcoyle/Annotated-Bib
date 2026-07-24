@@ -1118,7 +1118,12 @@ nav {
    MARGIN RAIL — fixed to the right edge of the viewport,
    sidestepping the flex/grid/order rules above entirely
    ============================================================ */
-body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-slug="ideas"]):not([data-slug="publications"]):not([data-slug="bibliography"]):not([data-slug="map"]):not([data-slug="about"]):not([data-slug^="kind/"]):not([data-slug^="mode/"]):not([data-slug^="grid/"]):not([data-slug^="tags/"]) .markdown-preview-view {
+/* Author pages (authors/index, authors/<slug>) render the same
+   full-width .wrap + centered .tag-browse/.entry-list-block layout
+   as tag pages — added to this exclusion list alongside tags/ so
+   .markdown-preview-view doesn't get clamped to the 640px note-
+   reading column here too. */
+body[data-slug]:not([data-slug="index"]):not([data-slug="sources"]):not([data-slug="ideas"]):not([data-slug="publications"]):not([data-slug="bibliography"]):not([data-slug="map"]):not([data-slug="about"]):not([data-slug^="kind/"]):not([data-slug^="mode/"]):not([data-slug^="grid/"]):not([data-slug^="tags/"]):not([data-slug^="authors/"]) .markdown-preview-view {
   max-width: 640px;
   margin: 0 auto;
 }.markdown-preview-view .toc .toc-content li a {

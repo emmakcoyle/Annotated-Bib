@@ -10,8 +10,8 @@
     "annotated-entrylist": {
       "source": "github:emmakcoyle/annotated-entrylist",
       "resolved": "https://github.com/emmakcoyle/annotated-entrylist.git",
-      "commit": "eb7d3f8878802b89aa13b49425f072681c3c04ac",
-      "installedAt": "2026-07-24T04:50:45.347Z"
+      "commit": "878db5e1e2d06e5ca467dfa19a8d149beff285c3",
+      "installedAt": "2026-07-24T19:40:35.117Z"
     },
     "annotated-foldnav": {
       "source": "github:emmakcoyle/annotated-foldnav",
@@ -66,6 +66,12 @@
       "resolved": "https://github.com/quartz-community/article-title.git",
       "commit": "87499a64e8b9af69bfce23dd5985a33176b14b5e",
       "installedAt": "2026-07-23T23:18:28.181Z"
+    },
+    "author-page": {
+      "source": "github:emmakcoyle/author-page",
+      "resolved": "https://github.com/emmakcoyle/author-page.git",
+      "commit": "d6ce277e1c1a290ae1e4cd02a023a42210acbf4d",
+      "installedAt": "2026-07-24T19:28:38.050Z"
     },
     "backlinks": {
       "source": "github:quartz-community/backlinks",
