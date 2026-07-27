@@ -57,6 +57,8 @@ jobs:
         run: npm ci
       - name: Install Quartz plugins
         run: npx quartz plugin install
+      - name: Refresh Olive Branch Review reads/saves counts
+        run: node scripts/update-reads-saves.js
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact

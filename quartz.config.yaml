@@ -329,6 +329,10 @@ plugins:
     enabled: true
     options: {}
     order: 50
+  - source: github:emmakcoyle/annotated-stub-page
+    enabled: true
+    options: {}
+    order: 50
 layout:
   groups:
     toolbar:
@@ -355,6 +359,12 @@ layout:
       exclude:
         - reader-mode
       positions:
+        right: []
+    stub:
+      exclude:
+        - reader-mode
+      positions:
+        left: []
         right: []
     canvas: {}
     bases: {}
