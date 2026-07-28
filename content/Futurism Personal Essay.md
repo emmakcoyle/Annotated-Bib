@@ -1,25 +1,25 @@
 ---
 title: "Futurism: Personal Essay"
 type: publication
-kind: "Personal Essay"
-mode:
+kind: Personal Essay
+mode: tangent
 coordinate:
-description: "A surreal personal essay written for 24hr Neon Mag's 'Futurism' issue, set in a museum."
+description: A surreal personal essay written for 24hr Neon Mag's 'Futurism' issue, set in a museum.
 tags:
-  - "24hr-neon-mag"
-  - "futurism"
-  - "personal-essay"
-  - "surrealism"
-  - "museum"
+  - 24hr-neon-mag
+  - futurism
+  - personal-essay
+  - surrealism
+  - museum
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2019
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Diego Rivera"
-  - "Rite of Spring"
+  - Diego Rivera
+  - Rite of Spring
 external_url:
 ---
 

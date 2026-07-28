@@ -1,25 +1,25 @@
 ---
 title: "Exhibition Review: Wendy Ewald Works, Projects, Collaborations 1975-1996"
 type: publication
-kind: "Exhibition Review"
+kind: Exhibition
 mode:
 coordinate:
-description: "A review of Wendy Ewald's collaborative photography with children, shown at the Steven Kasher Gallery."
+description: A review of Wendy Ewald's collaborative photography with children, shown at the Steven Kasher Gallery.
 tags:
-  - "photography"
-  - "exhibition-review"
-  - "collaboration"
-  - "childhood"
+  - photography
+  - exhibition-review
+  - collaboration
+  - childhood
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-06-11
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Wendy Ewald"
-  - "Steven Kasher Gallery"
-external_url: "https://museemagazine.com/culture/exhibition-review-wendy-ewald-works-projects-collaborations"
+  - Wendy Ewald
+  - Steven Kasher Gallery
+external_url: https://museemagazine.com/culture/exhibition-review-wendy-ewald-works-projects-collaborations
 ---
 
 <a href="https://museemagazine.com/culture/exhibition-review-wendy-ewald-works-projects-collaborations" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

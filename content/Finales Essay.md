@@ -1,23 +1,22 @@
 ---
 title: "Finales: Essay"
 type: publication
-kind: "Essay"
-mode:
+kind: Essay
+mode: Theory
 coordinate:
-description: "An essay on relationships as theatre -- front of house and backstage -- written for 24hr Neon Mag's 'Finales' issue."
+description: An essay on relationships as theatre -- front of house and backstage -- written for 24hr Neon Mag's 'Finales' issue.
 tags:
-  - "24hr-neon-mag"
-  - "finales"
-  - "essay"
-  - "relationships"
+  - 24hr-neon-mag
+  - finales
+  - essay
+  - relationships
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2019
 pinned: false
 marginnotes:
 password:
 subjects:
-
 external_url:
 ---
 

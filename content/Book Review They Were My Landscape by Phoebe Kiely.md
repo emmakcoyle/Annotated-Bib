@@ -1,7 +1,7 @@
 ---
 title: "Book Review: They Were My Landscape by Phoebe Kiely"
 type: publication
-kind: Book Review
+kind: Review
 mode: critique
 coordinate:
 description: A review of Phoebe Kiely's black-and-white photobook They Were My Landscape, published by MACK.

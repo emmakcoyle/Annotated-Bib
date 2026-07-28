@@ -1,7 +1,7 @@
 ---
 title: "Book Review: Pics or It Didn't Happen"
 type: publication
-kind: Book Review
+kind: Review
 mode: critique
 coordinate:
 description: A review of Pics or It Didn't Happen, a collection of images banned from Instagram edited by Arvida Byström and Molly Soda.

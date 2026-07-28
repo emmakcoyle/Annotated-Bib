@@ -1,23 +1,22 @@
 ---
-title: "I would write you a letter"
+title: I would write you a letter
 type: publication
-kind: "Poem"
-mode:
+kind: Poem
+mode: creative
 coordinate:
-description: "A two-stanza poem written for 24hr Neon Mag's 'Forgotten' issue, dated February 2019."
+description: A two-stanza poem written for 24hr Neon Mag's 'Forgotten' issue, dated February 2019.
 tags:
-  - "24hr-neon-mag"
-  - "forgotten"
-  - "poem"
-  - "love-poem"
+  - 24hr-neon-mag
+  - forgotten
+  - poem
+  - love-poem
 authors:
-  - "Emma Coyle"
-date_published: "2019-02-01"
+  - Emma Coyle
+date_published: 2019-02-01
 pinned: false
 marginnotes:
 password:
 subjects:
-
 external_url:
 ---
 

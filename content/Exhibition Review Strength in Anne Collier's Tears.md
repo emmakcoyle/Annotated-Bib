@@ -1,25 +1,25 @@
 ---
 title: "Exhibition Review: Strength in Anne Collier's Tears"
 type: publication
-kind: "Exhibition Review"
+kind: Exhibition
 mode:
 coordinate:
-description: "A review of Anne Collier's solo exhibition at Anton Kern Gallery, on the portrayal of women's emotion in pop culture."
+description: A review of Anne Collier's solo exhibition at Anton Kern Gallery, on the portrayal of women's emotion in pop culture.
 tags:
-  - "photography"
-  - "exhibition-review"
-  - "feminism"
-  - "pop-culture"
+  - photography
+  - exhibition-review
+  - feminism
+  - pop-culture
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-05-18
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Anne Collier"
-  - "Anton Kern Gallery"
-external_url: "https://museemagazine.com/culture/2018/5/18/exhibition-review-strength-in-anne-colliers-tears"
+  - Anne Collier
+  - Anton Kern Gallery
+external_url: https://museemagazine.com/culture/2018/5/18/exhibition-review-strength-in-anne-colliers-tears
 ---
 
 <a href="https://museemagazine.com/culture/2018/5/18/exhibition-review-strength-in-anne-colliers-tears" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

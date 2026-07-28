@@ -1,7 +1,7 @@
 ---
 title: "Book Review: Serpent in the Wildness"
 type: publication
-kind: Book Review
+kind: Review
 mode: critique
 coordinate:
 description: A review of Andy Richter's Serpent in the Wilderness, documenting yoga practice in America and India.

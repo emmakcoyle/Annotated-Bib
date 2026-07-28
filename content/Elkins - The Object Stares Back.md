@@ -2,7 +2,7 @@
 title: "Elkins, James. 1997. The Object Stares Back: On the Nature of Seeing"
 type: source
 kind: Reading Note
-mode:
+mode: summary
 coordinate:
 description: Citation stub only — annotation not yet written in the original wiki.
 tags:

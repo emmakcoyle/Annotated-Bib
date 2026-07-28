@@ -1,8 +1,8 @@
 ---
-title: "Art, Politics and Philosophy"
+title: Art, Politics and Philosophy
 type: source
 kind: Reading Note
-mode:
+mode: summary
 coordinate:
 description: On John Phillips' Art, Politics, and Philosophy — "null definition," ineffability in art, and the aesthetic regime as a system of reflection rather than a collection of objects.
 tags:

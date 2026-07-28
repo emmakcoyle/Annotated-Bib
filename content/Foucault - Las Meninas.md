@@ -1,8 +1,8 @@
 ---
-title: "Foucault, Michel. \"Las Meninas\""
+title: Foucault, Michel. "Las Meninas"
 type: source
 kind: Reading Note
-mode:
+mode: summary
 coordinate:
 description: On Foucault's reading of Velázquez's Las Meninas in The Order of Things — reciprocal gaze, the collapse of viewer and subject, and the painting as a marker of a broader epistemic shift.
 tags:
@@ -17,8 +17,6 @@ marginnotes:
 password:
 ---
 
-> [!warning] Flagged in the original wiki
-> The source tiddler carried the note "CHECK THIS FOR ERRORS" — worth a re-read before treating this as final.
 
 **Citation:** Foucault, Michel. "Las Meninas." In *The Order of Things: An Archaeology of the Human Sciences*, 3–16. New York: Vintage Books, 1994.
 

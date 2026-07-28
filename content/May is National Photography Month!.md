@@ -1,24 +1,24 @@
 ---
-title: "May is National Photography Month!"
+title: May is National Photography Month!
 type: publication
-kind: "Feature"
-mode:
+kind: Article
+mode: critique
 coordinate:
-description: "A survey of National Photography Month through the work of Jacques Henri Lartigue, Yinka Shonibare, and Ashley Bickerton."
+description: A survey of National Photography Month through the work of Jacques Henri Lartigue, Yinka Shonibare, and Ashley Bickerton.
 tags:
-  - "photography"
-  - "national-photography-month"
+  - photography
+  - national-photography-month
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-05-16
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Jacques Henri Lartigue"
-  - "Yinka Shonibare"
-  - "Ashley Bickerton"
-external_url: "https://museemagazine.com/features/2018/5/15/may-is-national-photography-month"
+  - Jacques Henri Lartigue
+  - Yinka Shonibare
+  - Ashley Bickerton
+external_url: https://museemagazine.com/features/2018/5/15/may-is-national-photography-month
 ---
 
 <a href="https://museemagazine.com/features/2018/5/15/may-is-national-photography-month" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

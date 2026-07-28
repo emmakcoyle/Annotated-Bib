@@ -1,25 +1,25 @@
 ---
-title: "\"Illinoise\" at the Park Avenue Armory Review"
+title: '"Illinoise" at the Park Avenue Armory Review'
 type: publication
-kind: "Theater Review"
-mode:
+kind: Review
+mode: critique
 coordinate:
-description: "On the dance-theater adaptation of Sufjan Stevens' Illinois at the Park Avenue Armory, staged as a visual album rather than a traditional musical."
+description: On the dance-theater adaptation of Sufjan Stevens' Illinois at the Park Avenue Armory, staged as a visual album rather than a traditional musical.
 tags:
-  - "broadway"
-  - "dance"
-  - "review"
-  - "theater-review"
+  - broadway
+  - dance
+  - review
+  - theater-review
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2024-09-08
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Sufjan Stevens"
-  - "Park Avenue Armory"
-external_url: "https://olivebranchreview.com/2024/09/08/illinoise-at-the-park-avenue-armory-review/"
+  - Sufjan Stevens
+  - Park Avenue Armory
+external_url: https://olivebranchreview.com/2024/09/08/illinoise-at-the-park-avenue-armory-review/
 reads: 227
 saves: 0
 ---

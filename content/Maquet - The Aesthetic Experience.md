@@ -2,7 +2,7 @@
 title: "Maquet, Jacques. The Aesthetic Experience: An Anthropologist Looks at the Visual Arts"
 type: source
 kind: Reading Note
-mode:
+mode: summary
 coordinate:
 description: On Maquet's The Aesthetic Experience — a phenomenological approach to art, the "personal repository of art experiences," and holistic/embodied perception over interpretive decoding.
 tags:

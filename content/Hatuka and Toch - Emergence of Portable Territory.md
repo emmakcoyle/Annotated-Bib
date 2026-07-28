@@ -2,9 +2,9 @@
 title: "The Emergence of Portable Private-Personal Territory: Smartphones, Social Conduct and Public Spaces"
 type: source
 kind: Reading Note
-mode:
+mode: summary
 coordinate:
-description: "Citation stub only — annotation not yet written in the original wiki."
+description: Citation stub only — annotation not yet written in the original wiki.
 tags:
 authors:
   - Tali Hatuka

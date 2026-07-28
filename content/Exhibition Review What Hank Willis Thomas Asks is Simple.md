@@ -1,24 +1,24 @@
 ---
 title: "Exhibition Review: What Hank Willis Thomas Asks is Simple"
 type: publication
-kind: "Exhibition Review"
+kind: Exhibition
 mode:
 coordinate:
-description: "A review of Hank Willis Thomas's What We Ask Is Simple at Jack Shainman Gallery, which uses retroreflective mirrors and archival news images."
+description: A review of Hank Willis Thomas's What We Ask Is Simple at Jack Shainman Gallery, which uses retroreflective mirrors and archival news images.
 tags:
-  - "photography"
-  - "exhibition-review"
-  - "social-activism"
+  - photography
+  - exhibition-review
+  - social-activism
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-05-10
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Hank Willis Thomas"
-  - "Jack Shainman Gallery"
-external_url: "https://museemagazine.com/culture/2018/5/10/what-hank-willis-thomas-asks-is-simple"
+  - Hank Willis Thomas
+  - Jack Shainman Gallery
+external_url: https://museemagazine.com/culture/2018/5/10/what-hank-willis-thomas-asks-is-simple
 ---
 
 <a href="https://museemagazine.com/culture/2018/5/10/what-hank-willis-thomas-asks-is-simple" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

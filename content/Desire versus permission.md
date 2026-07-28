@@ -2,7 +2,7 @@
 title: Desire versus permission
 type: publication
 kind: Essay
-mode:
+mode: Theory
 coordinate:
 description: A philosophical essay on the difference between permission and desire in sexual consent, written for the print edition of 24hr Neon Mag, 'Those Creatures who Stalk the Night!'
 tags:

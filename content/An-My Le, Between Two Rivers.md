@@ -1,7 +1,7 @@
 ---
 title: "An-My Lê: Between Two Rivers"
 type: source
-kind: Exhibit Note
+kind: Exhibit
 mode: summary
 coordinate:
 description: Notes and reflections on the An-My Lê exhibition at MoMA — "false wars," mimesis and Aristotelian catharsis, and the ethics of grounding interpretation in the physical/material aspects of the work

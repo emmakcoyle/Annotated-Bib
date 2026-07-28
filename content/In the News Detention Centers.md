@@ -1,24 +1,24 @@
 ---
 title: "In the News: Detention Centers"
 type: publication
-kind: "Feature"
-mode:
+kind: Article
+mode: critique
 coordinate:
-description: "On the Trump administration's family separation policy at the border, written alongside an archival image from the US Holocaust Memorial Museum."
+description: On the Trump administration's family separation policy at the border, written alongside an archival image from the US Holocaust Memorial Museum.
 tags:
-  - "photography"
-  - "immigration"
-  - "human-rights"
-  - "politics"
+  - photography
+  - immigration
+  - human-rights
+  - politics
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-06-22
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "United States Holocaust Memorial Museum"
-external_url: "https://museemagazine.com/features/in-the-news-detention-centers"
+  - United States Holocaust Memorial Museum
+external_url: https://museemagazine.com/features/in-the-news-detention-centers
 ---
 
 <a href="https://museemagazine.com/features/in-the-news-detention-centers" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

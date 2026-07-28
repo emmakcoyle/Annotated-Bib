@@ -1,7 +1,7 @@
 ---
 title: "Book Review: Mind the Gap by Joshua Lutz"
 type: publication
-kind: Book Review
+kind: Review
 mode: critique
 coordinate:
 description: An interview and review with photographer Joshua Lutz on Mind the Gap, a monograph blending photography and fiction, published by Schilt Publishing.

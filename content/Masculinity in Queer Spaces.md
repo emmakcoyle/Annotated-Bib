@@ -1,24 +1,24 @@
 ---
-title: "Masculinity in Queer Spaces"
+title: Masculinity in Queer Spaces
 type: publication
-kind: "Feature"
-mode:
+kind: Article
+mode: critique
 coordinate:
-description: "On Akshit Bhardwaj's Singularis and the tension between traditional markers of masculinity and queer identity."
+description: On Akshit Bhardwaj's Singularis and the tension between traditional markers of masculinity and queer identity.
 tags:
-  - "photography"
-  - "queer"
-  - "gender"
-  - "lgbtq"
+  - photography
+  - queer
+  - gender
+  - lgbtq
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-06-15
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Akshit Bhardwaj"
-external_url: "https://museemagazine.com/features/2018/6/15/masculinity-in-queer-spaces"
+  - Akshit Bhardwaj
+external_url: https://museemagazine.com/features/2018/6/15/masculinity-in-queer-spaces
 ---
 
 <a href="https://museemagazine.com/features/2018/6/15/masculinity-in-queer-spaces" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

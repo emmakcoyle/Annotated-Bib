@@ -1,8 +1,8 @@
 ---
-title: "Marcus, George E., and Fred R. Myers. The Traffic in Art and Culture"
+title: Marcus, George E., and Fred R. Myers. The Traffic in Art and Culture
 type: source
 kind: Reading Note
-mode:
+mode: summary
 coordinate:
 description: On Marcus and Myers's The Traffic in Art and Culture — the art world as an understudied culture, and appropriation, boundary, and circulation as a model for its study.
 tags:

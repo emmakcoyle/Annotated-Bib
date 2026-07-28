@@ -1,23 +1,23 @@
 ---
-title: "Eruption of Mount Kilauea"
+title: Eruption of Mount Kilauea
 type: publication
-kind: "Feature"
+kind: Article
 mode:
 coordinate:
-description: "On the 2018 Kilauea eruption and Jean-François Bégué's photographs of it."
+description: On the 2018 Kilauea eruption and Jean-François Bégué's photographs of it.
 tags:
-  - "photography"
-  - "nature"
-  - "volcano"
+  - photography
+  - nature
+  - volcano
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-06-05
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Jean-François Bégué"
-external_url: "https://museemagazine.com/features/2018/6/5/eruption-of-mount-kilauea"
+  - Jean-François Bégué
+external_url: https://museemagazine.com/features/2018/6/5/eruption-of-mount-kilauea
 ---
 
 <a href="https://museemagazine.com/features/2018/6/5/eruption-of-mount-kilauea" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

@@ -1,7 +1,7 @@
 ---
 title: "Book Review: I Write Artist Statements"
 type: publication
-kind: Book Review
+kind: Review
 mode: critique
 coordinate:
 description: A review of Liz Sales' I Write Artist Statements, a collection of fictional artist statements written like flash fiction.

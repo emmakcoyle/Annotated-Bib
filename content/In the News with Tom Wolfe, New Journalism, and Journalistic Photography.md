@@ -1,24 +1,24 @@
 ---
-title: "In the News with Tom Wolfe, New Journalism, and Journalistic Photography"
+title: In the News with Tom Wolfe, New Journalism, and Journalistic Photography
 type: publication
-kind: "Feature"
-mode:
+kind: Article
+mode: critique
 coordinate:
-description: "On Tom Wolfe's New Journalism and its echo in Brian Christopher Sargen's street photograph Anatomy of a Corner, written on the occasion of Wolfe's death."
+description: On Tom Wolfe's New Journalism and its echo in Brian Christopher Sargen's street photograph Anatomy of a Corner, written on the occasion of Wolfe's death.
 tags:
-  - "photography"
-  - "journalism"
-  - "photojournalism"
+  - photography
+  - journalism
+  - photojournalism
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-05-24
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Tom Wolfe"
-  - "Brian Christopher Sargen"
-external_url: "https://museemagazine.com/features/2018/5/24/in-the-news-with-tom-wolfe-new-journalism-and-journalistic-photography"
+  - Tom Wolfe
+  - Brian Christopher Sargen
+external_url: https://museemagazine.com/features/2018/5/24/in-the-news-with-tom-wolfe-new-journalism-and-journalistic-photography
 ---
 
 <a href="https://museemagazine.com/features/2018/5/24/in-the-news-with-tom-wolfe-new-journalism-and-journalistic-photography" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

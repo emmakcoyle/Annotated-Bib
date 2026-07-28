@@ -1,25 +1,25 @@
 ---
 title: "Exhibition Review: Mirror, Mirror"
 type: publication
-kind: "Exhibition Review"
+kind: Exhibition
 mode:
 coordinate:
-description: "A review of Ryan McGinley's Mirror, Mirror at Team (gallery, inc.), a collaborative self-portrait series."
+description: A review of Ryan McGinley's Mirror, Mirror at Team (gallery, inc.), a collaborative self-portrait series.
 tags:
-  - "photography"
-  - "exhibition-review"
-  - "portraiture"
-  - "identity"
+  - photography
+  - exhibition-review
+  - portraiture
+  - identity
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-07-13
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Ryan McGinley"
-  - "Team (gallery, inc.)"
-external_url: "https://museemagazine.com/culture/exhibition-review-mirror-mirror"
+  - Ryan McGinley
+  - Team (gallery, inc.)
+external_url: https://museemagazine.com/culture/exhibition-review-mirror-mirror
 ---
 
 <a href="https://museemagazine.com/culture/exhibition-review-mirror-mirror" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

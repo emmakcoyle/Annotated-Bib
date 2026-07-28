@@ -1,24 +1,24 @@
 ---
 title: "In the News with #MeToo, BDSM, and Active Consent"
 type: publication
-kind: "Feature"
-mode:
+kind: Article
+mode: critique
 coordinate:
-description: "On the distinction between BDSM and abuse in the wake of the Eric Schneiderman allegations, alongside William Langeveld's photography."
+description: On the distinction between BDSM and abuse in the wake of the Eric Schneiderman allegations, alongside William Langeveld's photography.
 tags:
-  - "photography"
-  - "metoo"
-  - "consent"
+  - photography
+  - metoo
+  - consent
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-05-15
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "William Langeveld"
-  - "Eric Schneiderman"
-external_url: "https://museemagazine.com/features/2018/5/14/in-the-news-with-metoo-bdsm-and-active-consent"
+  - William Langeveld
+  - Eric Schneiderman
+external_url: https://museemagazine.com/features/2018/5/14/in-the-news-with-metoo-bdsm-and-active-consent
 ---
 
 <a href="https://museemagazine.com/features/2018/5/14/in-the-news-with-metoo-bdsm-and-active-consent" class="pub-preview-card" target="_blank" rel="noopener noreferrer">

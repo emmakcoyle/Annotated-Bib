@@ -1,7 +1,7 @@
 ---
 title: "Book Review: Icons of Style by Paul Martineau"
 type: publication
-kind: Book Review
+kind: Review
 mode: critique
 coordinate:
 description: A review of Paul Martineau's Icons of Style, a century-spanning survey of fashion photography published with the J. Paul Getty Museum.

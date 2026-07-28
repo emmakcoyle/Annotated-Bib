@@ -1,7 +1,7 @@
 ---
 title: '"An-My Le: Between Two Rivers" Exhibition Reflection'
 type: publication
-kind: Exhibition Review
+kind: Exhibition
 mode: critique
 coordinate:
 description: On An-My Lê's Between Two Rivers exhibition at MoMA, and how its staged tranquility conceals a critique of militarization.

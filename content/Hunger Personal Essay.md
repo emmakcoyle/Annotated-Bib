@@ -1,23 +1,22 @@
 ---
 title: "Hunger: Personal Essay"
 type: publication
-kind: "Personal Essay"
-mode:
+kind: Personal Essay
+mode: tangent
 coordinate:
-description: "A personal essay written for 24hr Neon Mag's 'Hunger' issue -- a diner in Chester County and the legend of old Frazier bridge."
+description: A personal essay written for 24hr Neon Mag's 'Hunger' issue -- a diner in Chester County and the legend of old Frazier bridge.
 tags:
-  - "24hr-neon-mag"
-  - "hunger"
-  - "personal-essay"
-  - "urban-legend"
+  - 24hr-neon-mag
+  - hunger
+  - personal-essay
+  - urban-legend
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2019
 pinned: false
 marginnotes:
 password:
 subjects:
-
 external_url:
 ---
 

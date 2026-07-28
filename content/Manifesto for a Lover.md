@@ -1,8 +1,8 @@
 ---
 title: Manifesto for a Lover
 type: publication
-kind: Zine
-mode:
+kind: Essay
+mode: Theory
 coordinate:
 description: A short researched zine that reconciles time, inter-relational communication, and memory organizational methods, proposing how to relate the self to the other without relying on Aristotelian conceptions of narrative plot.
 tags:

@@ -1,26 +1,26 @@
 ---
 title: "Elizabeth Catlett: A Solo Show but not an Isolated Show"
 type: publication
-kind: "Exhibition Review"
+kind: Exhibition
 mode:
 coordinate:
-description: "On Elizabeth Catlett's solo exhibition at the Brooklyn Museum, and how her sculptures and prints resist isolation even within a solo show."
+description: On Elizabeth Catlett's solo exhibition at the Brooklyn Museum, and how her sculptures and prints resist isolation even within a solo show.
 tags:
-  - "art-review"
-  - "exhibition-review"
-  - "museum"
-  - "opinion"
+  - art-review
+  - exhibition-review
+  - museum
+  - opinion
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2025-01-09
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Elizabeth Catlett"
-  - "Brooklyn Museum"
-  - "National Gallery of Art"
-external_url: "https://olivebranchreview.com/2025/01/09/elizabeth-catlett-a-solo-show-but-not-an-isolated-show/"
+  - Elizabeth Catlett
+  - Brooklyn Museum
+  - National Gallery of Art
+external_url: https://olivebranchreview.com/2025/01/09/elizabeth-catlett-a-solo-show-but-not-an-isolated-show/
 reads: 507
 saves: 1
 ---

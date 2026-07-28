@@ -1,28 +1,28 @@
 ---
 title: "Exhibition Review: ICP Explores Photography in Four New Exhibitions"
 type: publication
-kind: "Exhibition Review"
+kind: Exhibition
 mode:
 coordinate:
-description: "A review of four concurrent exhibitions at the International Center of Photography, spanning Henri Cartier-Bresson, Elliott Erwitt, Rein Jelle Terpstra, and a group show on identity."
+description: A review of four concurrent exhibitions at the International Center of Photography, spanning Henri Cartier-Bresson, Elliott Erwitt, Rein Jelle Terpstra, and a group show on identity.
 tags:
-  - "photography"
-  - "exhibition-review"
-  - "photojournalism"
-  - "history"
+  - photography
+  - exhibition-review
+  - photojournalism
+  - history
 authors:
-  - "Emma Coyle"
+  - Emma Coyle
 date_published: 2018-05-23
 pinned: false
 marginnotes:
 password:
 subjects:
-  - "Elliott Erwitt"
-  - "Henri Cartier-Bresson"
-  - "Rein Jelle Terpstra"
-  - "Geta Brătescu"
-  - "International Center of Photography"
-external_url: "https://museemagazine.com/culture/2018/5/22/exhibition-review-icp-explores-photography-in-four-new-exhibitions"
+  - Elliott Erwitt
+  - Henri Cartier-Bresson
+  - Rein Jelle Terpstra
+  - Geta Brătescu
+  - International Center of Photography
+external_url: https://museemagazine.com/culture/2018/5/22/exhibition-review-icp-explores-photography-in-four-new-exhibitions
 ---
 
 <a href="https://museemagazine.com/culture/2018/5/22/exhibition-review-icp-explores-photography-in-four-new-exhibitions" class="pub-preview-card" target="_blank" rel="noopener noreferrer">
