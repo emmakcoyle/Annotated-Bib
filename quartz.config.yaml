@@ -163,6 +163,19 @@ plugins:
       priority: 50
   - source: github:quartz-community/graph
     enabled: true
+    options:
+      localGraph:
+        drag: true
+        zoom: true
+        depth: -1
+        showTags: true
+        removeTags: []
+      globalGraph:
+        drag: true
+        zoom: true
+        depth: -1
+        showTags: true
+        removeTags: []
     layout:
       position: afterBody
       priority: 10

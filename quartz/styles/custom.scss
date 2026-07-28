@@ -2087,3 +2087,13 @@ textarea,
 .search input {
   cursor: text;
 }
+
+/* ============================================================
+   GRAPH VIEW — larger embedded (local) graph box
+   The graph plugin hardcodes .graph-outer to 250px in its own
+   stylesheet; this overrides it so the on-page graph is roomier
+   without needing to click through to the fullscreen/global view.
+   ============================================================ */
+.graph > .graph-outer {
+  height: 600px;
+}
